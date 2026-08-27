@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/Navbar.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { lokasi } from '../../data/lokasi.js';
+export async function getStaticPaths(){ return lokasi.map(l => ({params:{kota:l.slug}, props:{item:l}}));}
+const { item } = Astro.props;
+const other = lokasi.filter(l=> l.slug!==item.slug);
+---
+<Base title={`Jasa Cleaning Service ${item.kota} — Tim Terdekat 30 Menit | RUMA TENANG`} description={`RUMA TENANG melayani ${item.kota}: ${item.area.join(', ')}. Tim terverifikasi, garansi 24 jam, harga transparan.`}>
+  <Navbar />
+  <div class="pt-28">
+    <div class="max-w-[1120px] mx-auto px-4">
+      <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Lokasi', href:'/lokasi'}, {label:item.kota}]} />
+      <!-- Hero kota -->
+      <div class="grid lg:grid-cols-2 gap-8 mt-6 items-center">
+        <div class="reveal">
+          <span class="inline-flex bg-terracotta text-white px-3 py-1 rounded-full text-xs font-bold">Cover {item.area.length} Area di {item.kota}</span>
+          <h1 class="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-none mt-3">Jasa Cleaning Service <em class="text-terracotta">{item.kota}</em> — Tim 30 Menit Sampai.</h1>
+          <p class="text-ink/60 mt-3">RUMA TENANG by NESTA melayani {item.area.join(', ')} — tanpa biaya transport untuk {item.kota}. Keyword: {item.keyword}</p>
+          <div class="flex flex-wrap gap-2 mt-4">
+            {item.area.map(a=> <span class="bg-white border border-sand px-3 py-1 rounded-full text-sm flex items-center gap-1"><span class="w-1.5 h-1.5 bg-sage rounded-full"></span>{a}</span>)}
+          </div>
+          <div class="flex gap-2 mt-6">
+            <a data-wa={`Halo RUMA TENANG, saya di ${item.kota}, alamat di [alamat], mau Deep Cleaning. Estimasi berapa?`} class="bg-terracotta text-white px-6 py-3 rounded-full font-bold">Konsultasi {item.kota} via WA</a>
+            <a href="/harga" class="px-6 py-3 rounded-full border border-sand bg-white font-bold">Lihat Harga</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="rounded-bento overflow-hidden border border-sand h-[360px] relative">
+            <img src={item.hero} class="w-full h-full object-cover" alt={item.kota} />
+            <div class="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur border border-sand rounded-2xl p-3 flex items-center gap-3">
+              <img src="/images-v2/avatar-1.jpg" class="w-10 h-10 rounded-full" alt="" />
+              <div class="text-sm"><div class="font-bold">“{item.testi}”</div><div class="text-xs text-ink/60">★★★★★ Google • {item.kota}</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kenapa pilih di kota ini -->
+      <div class="grid md:grid-cols-3 gap-4 mt-10">
+        <div class="reveal bg-white border border-sand rounded-bento p-5 text-center"><div class="w-10 h-10 rounded-xl bg-terracotta text-white grid place-items-center mx-auto"><i class="fa-solid fa-people-group"></i></div><div class="font-bold mt-2">Tim Lokal {item.kota}</div><p class="text-xs text-ink/60">Tidak perlu tunggu lama, crew di dekatmu.</p></div>
+        <div class="reveal bg-white border border-sand rounded-bento p-5 text-center"><div class="w-10 h-10 rounded-xl bg-sage text-white grid place-items-center mx-auto"><i class="fa-solid fa-truck"></i></div><div class="font-bold mt-2">Gratis Transport</div><p class="text-xs text-ink/60">Jabodetabek tanpa biaya tambahan.</p></div>
+        <div class="reveal bg-white border border-sand rounded-bento p-5 text-center"><div class="w-10 h-10 rounded-xl bg-charcoal text-white grid place-items-center mx-auto"><i class="fa-solid fa-award"></i></div><div class="font-bold mt-2">Garansi 24 Jam</div><p class="text-xs text-ink/60">Di {item.kota} pun garansi berlaku.</p></div>
+      </div>
+
+      <!-- Layanan tersedia -->
+      <div class="mt-10 reveal">
+        <h2 class="font-display font-bold text-2xl">Layanan Tersedia di {item.kota}</h2>
+        <div class="grid md:grid-cols-3 gap-4 mt-4">
+          <a href="/layanan/deep-cleaning" class="bg-white border border-sand rounded-bento p-4 hover:shadow-lg transition block"><img src="/images-v2/paket-deep.jpg" class="rounded-xl h-28 w-full object-cover" alt="" /><div class="font-bold mt-2">Deep Tenang</div><div class="text-xs text-ink/60">5 jam detail • Rp650k</div></a>
+          <a href="/layanan/home-cleaning" class="bg-white border border-sand rounded-bento p-4 hover:shadow-lg transition block"><img src="/images-v2/paket-rapi.jpg" class="rounded-xl h-28 w-full object-cover" alt="" /><div class="font-bold mt-2">Rapi Cepat</div><div class="text-xs text-ink/60">2.5 jam • Rp350k</div></a>
+          <a href="/layanan/carpet-sofa" class="bg-white border border-sand rounded-bento p-4 hover:shadow-lg transition block"><img src="/images-v2/bento-sofa.jpg" class="rounded-xl h-28 w-full object-cover" alt="" /><div class="font-bold mt-2">Cuci Sofa</div><div class="text-xs text-ink/60">Mulai Rp150k</div></a>
+        </div>
+      </div>
+
+      <!-- FAQ kota -->
+      <div class="max-w-[760px] mx-auto mt-10 reveal">
+        <h2 class="font-display font-bold text-xl text-center">FAQ {item.kota}</h2>
+        <div class="mt-4 space-y-2">
+          <details class="bg-warm border border-sand rounded-bento p-4"><summary class="font-semibold cursor-pointer">Apakah cover {item.area[0]}?</summary><p class="text-sm text-ink/60 mt-2">Ya, cover semua area di atas. WA untuk cek slot terdekat.</p></details>
+          <details class="bg-warm border border-sand rounded-bento p-4"><summary class="font-semibold cursor-pointer">Berapa biaya transport ke {item.kota}?</summary><p class="text-sm text-ink/60 mt-2">Gratis untuk Jabodetabek. Luar area WA dulu.</p></details>
+        </div>
+      </div>
+
+      <!-- Nearby -->
+      <div class="mt-10 bg-warm border border-sand rounded-bento p-6 reveal">
+        <div class="font-bold">Juga melayani di sekitar {item.kota}</div>
+        <div class="flex flex-wrap gap-2 mt-2">{other.map(o=> <a href={`/lokasi/${o.slug}`} class="px-3 py-1 rounded-full bg-white border border-sand text-sm">{o.kota}</a>)}</div>
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-10 bg-charcoal text-white rounded-bento p-6 flex flex-col md:flex-row gap-4 items-center reveal">
+        <div class="flex-1"><div class="font-display font-bold text-xl">Di {item.kota} — siap pulang jadi tenang?</div><div class="text-sm text-white/70">Kirim alamat, balas &lt;1 jam. Gratis konsultasi.</div></div>
+        <a data-wa={`Halo RUMA TENANG, saya di ${item.kota}, alamat [alamat]. Estimasi?`} class="bg-terracotta px-6 py-3 rounded-full font-bold">WA {item.kota}</a>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-charcoal text-white/60 text-center text-xs py-6 mt-12">© 2026 RUMA TENANG by NESTA • <a href="/lokasi" class="underline">Semua Lokasi</a></footer>
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"LocalBusiness","name":`RUMA TENANG by NESTA - ${item.kota}`,"areaServed":item.kota,"url":`https://rumatenang.id/lokasi/${item.slug}`})} />
+</Base>

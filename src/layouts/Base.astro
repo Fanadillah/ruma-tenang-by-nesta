@@ -1,0 +1,81 @@
+---
+interface Props { title?: string; description?: string; }
+const { title = "RUMA TENANG by NESTA — Pulang Jadi Tenang", description = "RUMA TENANG by NESTA merapikan rumah & kantor di Jabodetabek. Tim terverifikasi, before-after nyata, harga transparan, garansi. Konsultasi gratis via WhatsApp." } = Astro.props;
+import '../styles/global.css';
+---
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href="https://rumatenang.id/" />
+  <link rel="icon" href="/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,soft,wght@9..144,50,600;9..144,50,700;9..144,50,800;9..144,90,600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <meta property="og:title" content="RUMA TENANG by NESTA — Pulang Jadi Tenang" />
+  <meta property="og:description" content="500+ keluarga percaya. Lihat hasil before-after nyata." />
+  <meta property="og:image" content="/images-v2/og-image.jpg" />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context":"https://schema.org","@type":"LocalBusiness","name":"RUMA TENANG by NESTA","url":"https://rumatenang.id/","telephone":"+6281234567890","image":"https://rumatenang.id/images-v2/og-image.jpg","address":{"@type":"PostalAddress","addressLocality":"Jakarta Selatan","addressRegion":"DKI Jakarta","addressCountry":"ID"},"geo":{"@type":"GeoCoordinates","latitude":-6.261493,"longitude":106.810611},"openingHours":"Mo-Sa 08:00-17:00","priceRange":"Rp350000 - Rp650000","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"847"},"areaServed":["Jakarta","Bekasi","Depok","Tangerang","Bogor"]
+  })} />
+</head>
+<body class="antialiased">
+  <slot />
+  <script>
+    // WA terpusat + reveal + slider
+    const WA_NUMBER = '6281234567890';
+    const waLink = (m) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(m)}`;
+    document.querySelectorAll('[data-wa]').forEach(el => {
+      const msg = el.getAttribute('data-wa') || 'Halo RUMA TENANG by NESTA, saya mau konsultasi untuk rumah di [lokasi]. Boleh estimasi?';
+      el.setAttribute('href', waLink(msg));
+      el.setAttribute('target','_blank');
+      el.setAttribute('rel','noopener');
+    });
+    // reveal
+    const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }}), {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    // kalkulator
+    const luas = document.getElementById('kalkulator-luas');
+    const out = document.getElementById('kalkulator-out');
+    const paketSel = document.getElementById('kalkulator-paket');
+    function updateKalk(){
+      if(!luas || !out) return;
+      const v = parseInt(luas.value);
+      const p = paketSel ? paketSel.value : 'deep';
+      let harga = p==='rapi'?350000: p==='deep'?650000: 1100000;
+      if(v>120 && p!=='rutin') harga += Math.round((v-120)/10)*25000;
+      const waMsg = `Halo RUMA TENANG by NESTA, rumah saya ${v}m² di [alamat], mau paket ${p}. Estimasi ${harga.toLocaleString('id-ID')} ya?`;
+      out.textContent = `Rp${harga.toLocaleString('id-ID')}`;
+      const btn = document.getElementById('kalkulator-wa');
+      if(btn) btn.setAttribute('data-wa', waMsg);
+      if(btn) btn.setAttribute('href', waLink(waMsg));
+      const luasLabel = document.getElementById('kalkulator-luas-label');
+      if(luasLabel) luasLabel.textContent = v + ' m²';
+    }
+    if(luas){ luas.addEventListener('input', updateKalk); if(paketSel) paketSel.addEventListener('change', updateKalk); updateKalk(); }
+    // before-after drag
+    document.querySelectorAll('[data-ba]').forEach(wrap => {
+      const handle = wrap.querySelector('[data-ba-handle]');
+      const after = wrap.querySelector('[data-ba-after]');
+      let drag=false;
+      const set = (x) => {
+        const rect = wrap.getBoundingClientRect();
+        let pct = ((x-rect.left)/rect.width)*100;
+        pct = Math.max(5, Math.min(95, pct));
+        if(after) after.style.clipPath = `inset(0 ${100-pct}% 0 0)`;
+        if(handle) handle.style.left = pct+'%';
+      };
+      wrap.addEventListener('pointerdown', e=>{drag=true; wrap.setPointerCapture(e.pointerId); set(e.clientX);});
+      wrap.addEventListener('pointermove', e=>{ if(drag) set(e.clientX); });
+      wrap.addEventListener('pointerup', ()=>drag=false);
+      wrap.addEventListener('click', e=> set(e.clientX));
+    });
+    // back to top
+    const btt = document.getElementById('backToTop');
+    if(btt){ window.addEventListener('scroll', ()=> btt.classList.toggle('hidden', window.scrollY<400)); btt.addEventListener('click', e=>{e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});}); }
+  </script>
+</body>
+</html>

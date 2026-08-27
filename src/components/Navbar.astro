@@ -1,0 +1,68 @@
+---
+const layanan = [
+  {label:'Home Cleaning', href:'/layanan/home-cleaning'},
+  {label:'Deep Cleaning', href:'/layanan/deep-cleaning'},
+  {label:'Office Cleaning', href:'/layanan/office-cleaning'},
+  {label:'Carpet & Sofa', href:'/layanan/carpet-sofa'},
+  {label:'Window Cleaning', href:'/layanan/window-cleaning'},
+  {label:'General Cleaning', href:'/layanan/general-cleaning'},
+];
+const lokasi = [
+  {label:'Jakarta', href:'/lokasi/jakarta'},
+  {label:'Bekasi', href:'/lokasi/bekasi'},
+  {label:'Depok', href:'/lokasi/depok'},
+  {label:'Tangerang', href:'/lokasi/tangerang'},
+  {label:'Bogor', href:'/lokasi/bogor'},
+];
+const current = Astro.url.pathname;
+---
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(96%,1220px)]">
+  <div class="bg-warm/90 backdrop-blur-xl border border-sand rounded-full px-3 py-2 flex items-center justify-between shadow-lg">
+    <a href="/" class="flex items-center gap-2 pl-2 shrink-0">
+      <span class="w-8 h-8 rounded-full bg-terracotta text-white grid place-items-center text-sm"><i class="fa-solid fa-house-chimney"></i></span>
+      <span class="font-display font-bold text-charcoal leading-none">RUMA TENANG <span class="font-sans font-semibold text-[9px] tracking-[0.3em] text-terracotta block -mt-0.5">by NESTA</span></span>
+    </a>
+
+    <!-- Desktop -->
+    <div class="hidden lg:flex items-center gap-1 text-sm font-medium">
+      <div class="relative group">
+        <a href="/layanan" class={`px-3 py-2 rounded-full hover:bg-white flex items-center gap-1 ${current.startsWith('/layanan') ? 'bg-white text-terracotta':''}`}>Layanan <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
+        <div class="absolute top-full left-0 mt-2 w-56 bg-white border border-sand rounded-2xl shadow-xl p-2 hidden group-hover:block">
+          {layanan.map(l => <a href={l.href} class="block px-3 py-2 rounded-xl hover:bg-warm text-sm">{l.label}</a>)}
+          <a href="/layanan" class="block px-3 py-2 rounded-xl bg-charcoal text-white text-sm mt-1 text-center">Lihat Semua Layanan</a>
+        </div>
+      </div>
+      <div class="relative group">
+        <a href="/lokasi" class={`px-3 py-2 rounded-full hover:bg-white flex items-center gap-1 ${current.startsWith('/lokasi') ? 'bg-white text-terracotta':''}`}>Lokasi <i class="fa-solid fa-chevron-down text-[10px]"></i></a>
+        <div class="absolute top-full left-0 mt-2 w-48 bg-white border border-sand rounded-2xl shadow-xl p-2 hidden group-hover:block">
+          {lokasi.map(l => <a href={l.href} class="block px-3 py-2 rounded-xl hover:bg-warm text-sm">{l.label}</a>)}
+        </div>
+      </div>
+      <a href="/harga" class={`px-3 py-2 rounded-full hover:bg-white ${current.startsWith('/harga')?'bg-white text-terracotta':''}`}>Harga</a>
+      <a href="/galeri" class={`px-3 py-2 rounded-full hover:bg-white ${current.startsWith('/galeri')?'bg-white text-terracotta':''}`}>Galeri</a>
+      <a href="/tentang" class={`px-3 py-2 rounded-full hover:bg-white ${current.startsWith('/tentang')?'bg-white text-terracotta':''}`}>Tentang</a>
+      <a href="/kontak" class={`px-3 py-2 rounded-full hover:bg-white ${current.startsWith('/kontak')?'bg-white text-terracotta':''}`}>Kontak</a>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <a data-wa="Halo RUMA TENANG by NESTA, saya mau konsultasi untuk rumah di [lokasi]. Boleh estimasi?" class="hidden sm:inline-flex items-center gap-2 bg-terracotta hover:bg-terracotta-dark text-white px-5 py-2 rounded-full text-sm font-bold shadow"><i class="fa-brands fa-whatsapp"></i> Konsultasi</a>
+      <!-- Mobile toggle -->
+      <button id="nav-toggle" class="lg:hidden w-9 h-9 rounded-full bg-white border border-sand grid place-items-center"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="nav-mobile" class="hidden lg:hidden mt-2 bg-white border border-sand rounded-3xl shadow-xl p-4 max-h-[70vh] overflow-auto">
+    <div class="space-y-3 text-sm">
+      <div><div class="font-bold text-charcoal mb-1">Layanan</div><div class="grid grid-cols-2 gap-1">{layanan.map(l=> <a href={l.href} class="px-3 py-2 rounded-xl bg-warm hover:bg-sand block">{l.label}</a>)}<a href="/layanan" class="col-span-2 text-center bg-charcoal text-white rounded-xl py-2">Semua Layanan</a></div></div>
+      <div><div class="font-bold text-charcoal mb-1">Lokasi</div><div class="flex flex-wrap gap-1">{lokasi.map(l=> <a href={l.href} class="px-3 py-1.5 rounded-full bg-warm border border-sand">{l.label}</a>)}</div></div>
+      <div class="flex flex-wrap gap-1"><a href="/harga" class="flex-1 text-center px-3 py-2 rounded-full border border-sand">Harga</a><a href="/galeri" class="flex-1 text-center px-3 py-2 rounded-full border border-sand">Galeri</a><a href="/tentang" class="flex-1 text-center px-3 py-2 rounded-full border border-sand">Tentang</a><a href="/kontak" class="flex-1 text-center px-3 py-2 rounded-full border border-sand">Kontak</a></div>
+      <a data-wa="Halo RUMA TENANG by NESTA, saya mau konsultasi." class="block text-center bg-terracotta text-white rounded-full py-3 font-bold">Chat WhatsApp</a>
+    </div>
+  </div>
+</nav>
+<script>
+  const btn = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-mobile');
+  if(btn && menu){ btn.addEventListener('click', ()=> menu.classList.toggle('hidden')); }
+</script>

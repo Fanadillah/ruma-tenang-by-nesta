@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --warm: #FFFBF5;
+  --charcoal: #1A1A1E;
+  --terracotta: #C45A3C;
+  --sand: #E8DDD0;
+  --sage: #8A9A8E;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--warm); color: var(--charcoal); overflow-x: hidden; }
+.font-display { font-family: 'Fraunces', serif; }
+
+/* reveal */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }

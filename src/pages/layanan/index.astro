@@ -1,0 +1,44 @@
+﻿---
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/Navbar.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { layanan } from '../../data/layanan.js';
+---
+<Base title="Layanan Cleaning Service — 6 Cara RUMA TENANG Kembalikan Tenangmu" description="6 layanan RUMA TENANG: home, deep, office, sofa, window, general cleaning. Foto, harga, testimoni, before-after.">
+  <Navbar />
+  <div class="pt-28">
+    <div class="max-w-[1120px] mx-auto px-4">
+      <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Layanan'}]} />
+      <div class="text-center reveal mt-4">
+        <span class="inline-flex bg-sage/15 border border-sage/20 text-sage px-3 py-1 rounded-full text-xs font-bold">6 Layanan • Pilih yang Pas</span>
+        <h1 class="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-none mt-3">6 Cara Kami <em class="text-terracotta">Kembalikan Tenangmu.</em></h1>
+        <p class="text-ink/60 mt-2 max-w-[640px] mx-auto">Tiap layanan punya halaman detail + before-after + harga jujur. Klik untuk lihat.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        {layanan.map(l => (
+          <div class="reveal bg-white border border-sand rounded-bento overflow-hidden flex flex-col hover:shadow-xl transition">
+            <img src={l.hero} class="w-full h-44 object-cover" alt={l.title} loading="lazy" />
+            <div class="p-5 flex-1 flex flex-col">
+              <div class="inline-flex bg-warm border border-sand px-2 py-1 rounded-full text-xs font-semibold w-fit">{l.harga}</div>
+              <div class="font-display font-bold mt-2">{l.title.split('—')[0]}</div>
+              <div class="text-sm text-ink/60 mt-1 line-clamp-2">{l.desc}</div>
+              <ul class="text-xs text-ink/60 mt-2 space-y-0.5">{l.checklist.slice(0,2).map(c=> <li>✓ {c}</li>)}</ul>
+              <div class="flex gap-2 mt-4">
+                <a href={`/layanan/${l.slug}`} class="flex-1 bg-charcoal text-white rounded-full py-2 text-center text-sm font-bold">Detail →</a>
+                <a data-wa={`Halo RUMA TENANG, saya mau ${l.slug}.`} class="flex-1 bg-white border border-sand rounded-full py-2 text-center text-sm font-bold">WA</a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 bg-warm border border-sand rounded-bento p-6 grid md:grid-cols-3 gap-4 reveal">
+        <div class="text-center"><div class="w-10 h-10 rounded-xl bg-terracotta text-white grid place-items-center mx-auto"><i class="fa-solid fa-award"></i></div><div class="font-bold mt-2">Garansi 24 Jam</div><p class="text-xs text-ink/60">Tidak puas datang lagi gratis</p></div>
+        <div class="text-center"><div class="w-10 h-10 rounded-xl bg-sage text-white grid place-items-center mx-auto"><i class="fa-solid fa-leaf"></i></div><div class="font-bold mt-2">Eco & Aman</div><p class="text-xs text-ink/60">Sage, aman anak & hewan</p></div>
+        <div class="text-center"><div class="w-10 h-10 rounded-xl bg-charcoal text-white grid place-items-center mx-auto"><i class="fa-solid fa-shield-halved"></i></div><div class="font-bold mt-2">Terverifikasi</div><p class="text-xs text-ink/60">KTP & training 14 hari</p></div>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-charcoal text-white/60 text-center text-xs py-6 mt-12">© 2026 RUMA TENANG by NESTA • <a href="/harga" class="underline">Harga</a> • <a href="/galeri" class="underline">Galeri</a></footer>
+</Base>

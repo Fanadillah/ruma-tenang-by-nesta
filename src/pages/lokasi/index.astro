@@ -1,0 +1,49 @@
+﻿---
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/Navbar.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { lokasi } from '../../data/lokasi.js';
+---
+<Base title="Lokasi Layanan Jabodetabek — 5 Kota | RUMA TENANG by NESTA" description="RUMA TENANG melayani Jabodetabek: Jakarta, Bekasi, Depok, Tangerang, Bogor. Pilih kotamu, lihat area & testimoni.">
+  <Navbar />
+  <div class="pt-28">
+    <div class="max-w-[1120px] mx-auto px-4">
+      <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Lokasi'}]} />
+      <div class="text-center reveal mt-4">
+        <span class="inline-flex bg-sage/15 border border-sage/20 text-sage px-3 py-1 rounded-full text-xs font-bold">Jabodetabek • 500+ Keluarga</span>
+        <h1 class="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-none mt-3">Kami di <em class="text-terracotta">500 Meter</em> dari Rumahmu.</h1>
+        <p class="text-ink/60 mt-2 max-w-[640px] mx-auto">Pilih kota — lihat area tercover, testimoni warga sana, dan tim terdekat.</p>
+      </div>
+
+      <!-- Peta ilustrasi -->
+      <div class="mt-8 reveal bg-white border border-sand rounded-bento p-4">
+        <div class="rounded-2xl bg-warm border border-sand h-48 grid place-items-center text-ink/50 relative overflow-hidden">
+          <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#C45A3C 1px, transparent 1px); background-size: 16px 16px;"></div>
+          <div class="relative text-center"><div class="font-display font-bold text-charcoal">JABODETABEK</div><div class="text-xs">Jakarta • Bekasi • Depok • Tangerang • Bogor</div><div class="flex justify-center gap-1 mt-2"><span class="w-2 h-2 bg-terracotta rounded-full"></span><span class="w-2 h-2 bg-sage rounded-full"></span><span class="w-2 h-2 bg-charcoal rounded-full"></span></div></div>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2 mt-3">
+          {lokasi.map(l=> <a href={`/lokasi/${l.slug}`} class="px-4 py-1.5 rounded-full bg-charcoal text-white text-sm font-bold">{l.kota}</a>)}
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        {lokasi.map(l => (
+          <a href={`/lokasi/${l.slug}`} class="reveal group bg-white border border-sand rounded-bento overflow-hidden hover:shadow-xl transition block">
+            <div class="relative h-40">
+              <img src={l.hero} class="w-full h-full object-cover group-hover:scale-105 transition" alt={l.kota} loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute bottom-3 left-3 text-white"><div class="font-display font-extrabold text-xl">{l.kota}</div><div class="text-xs opacity-80">{l.area.slice(0,2).join(' • ')}</div></div>
+              <span class="absolute top-3 right-3 bg-white text-charcoal text-xs font-bold px-2 py-1 rounded-full">Tim terdekat</span>
+            </div>
+            <div class="p-4">
+              <div class="text-sm text-ink/60">{l.area.join(' • ')}</div>
+              <div class="text-xs mt-2 bg-warm border border-sand rounded-full px-3 py-1 inline-block">“{l.testi}”</div>
+              <div class="text-terracotta font-bold text-sm mt-3">Lihat {l.kota} →</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+  <footer class="bg-charcoal text-white/60 text-center text-xs py-6 mt-12">© 2026 RUMA TENANG by NESTA</footer>
+</Base>

@@ -1,0 +1,115 @@
+---
+import Base from '../../layouts/Base.astro';
+import Navbar from '../../components/Navbar.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { layanan } from '../../data/layanan.js';
+export async function getStaticPaths(){
+  return layanan.map(l => ({params:{slug:l.slug}, props:{item:l}}));
+}
+const { item } = Astro.props;
+const isDeep = item.slug==='deep-cleaning';
+const isSofa = item.slug==='carpet-sofa';
+---
+<Base title={item.title + ' | RUMA TENANG by NESTA'} description={item.desc}>
+  <Navbar />
+  <div class="pt-28">
+    <div class="max-w-[1120px] mx-auto px-4">
+      <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Layanan', href:'/layanan'}, {label:item.slug}]} />
+      <!-- Hero layanan -->
+      <div class="grid lg:grid-cols-2 gap-8 mt-6 items-center">
+        <div class="reveal">
+          <span class="inline-flex bg-sage/15 border border-sage/20 text-sage px-3 py-1 rounded-full text-xs font-bold">{item.keyword}</span>
+          <h1 class="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-none mt-3">{item.title.split('—')[0]} <em class="text-terracotta">— {item.title.split('—')[1] || ''}</em></h1>
+          <p class="text-ink/60 mt-3">{item.desc}</p>
+          <div class="flex items-center gap-3 mt-4">
+            <div class="font-display font-extrabold text-3xl text-terracotta">{item.harga}</div>
+            <span class="bg-warm border border-sand px-3 py-1 rounded-full text-xs">Garansi 24 jam</span>
+          </div>
+          <div class="flex gap-2 mt-4">
+            <a data-wa={`Halo RUMA TENANG, saya mau ${item.slug} untuk rumah di [lokasi]. Boleh estimasi?`} class="bg-terracotta text-white px-6 py-3 rounded-full font-bold">Pesan {item.slug} via WA</a>
+            <a href="/galeri" class="px-6 py-3 rounded-full border border-sand bg-white font-bold">Lihat Galeri</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <img src={item.hero} class="rounded-bento w-full h-[380px] object-cover border border-sand shadow-xl" alt={item.title} />
+          <div class="grid grid-cols-3 gap-2 mt-3">
+            {item.checklist.slice(0,3).map(c=> <div class="bg-white border border-sand rounded-2xl px-3 py-2 text-xs text-center">✓ {c}</div>)}
+          </div>
+        </div>
+      </div>
+
+      <!-- Before/After khusus -->
+      <div class="mt-12 bg-white border border-sand rounded-bento p-6 reveal">
+        <h2 class="font-display font-bold text-xl">Hasil {item.title.split('—')[0]} — Geser</h2>
+        <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <div data-ba class="relative rounded-bento overflow-hidden border border-sand h-56 cursor-ew-resize select-none touch-none">
+            <img src={isSofa ? "/images-v2/ba-sofa-before.jpg" : "/images-v2/ba-dapur-before.jpg"} class="absolute inset-0 w-full h-full object-cover" alt="before" />
+            <img data-ba-after src={isSofa ? "/images-v2/ba-sofa-after.jpg" : "/images-v2/ba-dapur-after.jpg"} class="absolute inset-0 w-full h-full object-cover" style="clip-path: inset(0 50% 0 0)" alt="after" />
+            <span data-ba-handle class="absolute top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-terracotta text-white grid place-items-center border-2 border-white" style="left:50%"><i class="fa-solid fa-arrows-left-right text-xs"></i></span>
+          </div>
+          <div data-ba class="relative rounded-bento overflow-hidden border border-sand h-56 cursor-ew-resize select-none touch-none">
+            <img src="/images-v2/ba-kamar-before.jpg" class="absolute inset-0 w-full h-full object-cover" alt="before" />
+            <img data-ba-after src="/images-v2/ba-kamar-after.jpg" class="absolute inset-0 w-full h-full object-cover" style="clip-path: inset(0 50% 0 0)" alt="after" />
+            <span data-ba-handle class="absolute top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-terracotta text-white grid place-items-center border-2 border-white" style="left:50%"><i class="fa-solid fa-arrows-left-right text-xs"></i></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual checklist -->
+      <div class="mt-8 reveal">
+        <h2 class="font-display font-bold text-2xl">Apa yang Dikerjakan</h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 mt-4">
+          {item.checklist.map(c => (
+            <div class="bg-white border border-sand rounded-2xl p-4 flex gap-3 items-center">
+              <span class="w-8 h-8 rounded-full bg-terracotta/15 text-terracotta grid place-items-center text-sm">✓</span>
+              <span class="text-sm font-medium">{c}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Proses mini -->
+      <div class="mt-8 bg-warm border border-sand rounded-bento p-6 reveal">
+        <h2 class="font-display font-bold">Proses — 4 Langkah</h2>
+        <div class="grid md:grid-cols-4 gap-3 mt-3 text-sm">
+          <div class="bg-white border border-sand rounded-2xl p-3 text-center"><div class="font-bold">1. WA 30 detik</div><div class="text-ink/60">Kirim foto ruangan</div></div>
+          <div class="bg-white border border-sand rounded-2xl p-3 text-center"><div class="font-bold">2. Estimasi &lt;1 jam</div><div class="text-ink/60">Tanpa biaya tersembunyi</div></div>
+          <div class="bg-white border border-sand rounded-2xl p-3 text-center"><div class="font-bold">3. Tim Datang</div><div class="text-ink/60">Bawa alat eco</div></div>
+          <div class="bg-white border border-sand rounded-2xl p-3 text-center"><div class="font-bold">4. Bayar Jika Puas</div><div class="text-ink/60">Garansi 24 jam</div></div>
+        </div>
+      </div>
+
+      <!-- Testimoni spesifik -->
+      <div class="mt-8 bg-white border border-sand rounded-bento p-6 reveal">
+        <div class="text-sm text-amber-500">★★★★★</div>
+        <p class="italic mt-2">“{isDeep ? 'Rumah pasca renovasi jadi kinclong dalam 5 jam. Detail sudutnya luar biasa.' : isSofa ? 'Sofa 5 tahun kembali wangi, anak betah main.' : 'Pulang kantor rumah sudah rapi, tim izin buka sepatu.'}”</p>
+        <div class="text-xs font-bold mt-2">{isDeep ? 'Rina — Cibubur (Deep Tenang)' : isSofa ? 'Maya — Depok (Sofa)' : 'Budi — Sudirman (Office)'} • Google</div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="mt-8 reveal">
+        <h2 class="font-display font-bold text-2xl">FAQ {item.title.split('—')[0]}</h2>
+        <div class="mt-3 space-y-2">{item.faq.map(f => <details class="bg-warm border border-sand rounded-bento p-4"><summary class="font-semibold cursor-pointer">{f.q}</summary><p class="text-sm text-ink/70 mt-2">{f.a}</p></details>)}</div>
+      </div>
+
+      <!-- Lokasi link -->
+      <div class="mt-8 p-6 bg-charcoal text-white rounded-bento reveal">
+        <div class="font-bold">Tersedia di Jabodetabek</div>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <a href="/lokasi/jakarta" class="px-3 py-1 rounded-full bg-white text-charcoal text-sm font-bold">Jakarta</a>
+          <a href="/lokasi/bekasi" class="px-3 py-1 rounded-full bg-white/15 border border-white/20 text-sm">Bekasi</a>
+          <a href="/lokasi/depok" class="px-3 py-1 rounded-full bg-white/15 border border-white/20 text-sm">Depok</a>
+          <a href="/lokasi/tangerang" class="px-3 py-1 rounded-full bg-white/15 border border-white/20 text-sm">Tangerang</a>
+          <a href="/lokasi/bogor" class="px-3 py-1 rounded-full bg-white/15 border border-white/20 text-sm">Bogor</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Sticky CTA mobile -->
+  <div class="fixed bottom-3 left-1/2 -translate-x-1/2 z-40 md:hidden bg-charcoal text-white rounded-full px-2 py-2 flex gap-2 shadow-xl border border-white/10">
+    <a data-wa={`Halo RUMA TENANG, saya mau ${item.slug}.`} class="bg-terracotta px-5 py-2 rounded-full font-bold text-sm">WA {item.slug}</a>
+    <a href="/harga" class="px-4 py-2 rounded-full bg-white text-charcoal text-sm font-bold">Harga</a>
+  </div>
+  <footer class="bg-charcoal text-white/60 text-center text-xs py-6 mt-12">© 2026 RUMA TENANG by NESTA</footer>
+  <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Service","name":item.title,"description":item.desc,"provider":{"@type":"LocalBusiness","name":"RUMA TENANG by NESTA"},"areaServed":["Jakarta","Bekasi","Depok","Tangerang","Bogor"],"offers":{"@type":"Offer","price":item.harga}})} />
+</Base>

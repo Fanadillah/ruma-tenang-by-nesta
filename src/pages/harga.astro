@@ -1,0 +1,112 @@
+﻿---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/Navbar.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import { layanan } from '../data/layanan.js';
+---
+<Base title="Harga Cleaning Service Jabodetabek — Transparan & Garansi | RUMA TENANG" description="Harga RUMA TENANG: Rapi Cepat Rp350k, Deep Tenang Rp650k, Tenang Rutin Rp1.1jt/bulan. Kalkulator live & garansi 24 jam.">
+  <Navbar />
+  <div class="pt-28">
+    <div class="max-w-[1120px] mx-auto px-4">
+      <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Harga'}]} />
+      <div class="text-center reveal mt-4">
+        <span class="inline-flex items-center gap-2 bg-terracotta/10 border border-terracotta/20 text-terracotta px-3 py-1 rounded-full text-xs font-bold tracking-wide">Harga Jujur Sejak 2018</span>
+        <h1 class="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-none mt-3">Harga Transparan, <em class="text-terracotta">Tanpa Surprise.</em></h1>
+        <p class="text-ink/60 mt-2 max-w-[640px] mx-auto">Pilih yang pas, hitung live, final WA. Tidak ada biaya tersembunyi.</p>
+      </div>
+
+      <!-- Pricing cards -->
+      <div class="grid md:grid-cols-3 gap-6 mt-8">
+        <div class="reveal bg-white border border-sand rounded-bento p-6 flex flex-col">
+          <img src="/images-v2/paket-rapi.jpg" class="rounded-xl h-36 w-full object-cover" alt="" />
+          <h3 class="font-display font-bold text-xl mt-4">Rapi Cepat</h3><div class="font-display font-extrabold text-3xl text-terracotta">Rp350.000 <span class="text-sm font-sans text-ink/50">/visit</span></div>
+          <ul class="text-sm text-ink/60 mt-3 space-y-1"><li>✓ 2–2.5 jam • 2 crew</li><li>✓ Sapu-pel-debu</li><li>✓ Apartemen & harian</li></ul>
+          <a data-wa="Halo RUMA TENANG, saya mau Rapi Cepat." class="mt-4 bg-white border border-sand rounded-full py-2 text-center font-bold">Pilih Rapi Cepat</a>
+        </div>
+        <div class="reveal bg-charcoal text-white rounded-bento p-6 flex flex-col border-2 border-terracotta relative">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-white text-xs font-bold px-3 py-1 rounded-full">Paling dipilih</span>
+          <img src="/images-v2/paket-deep.jpg" class="rounded-xl h-36 w-full object-cover" alt="" />
+          <h3 class="font-display font-bold text-xl mt-4">Deep Tenang</h3><div class="font-display font-extrabold text-3xl">Rp650.000 <span class="text-sm font-sans text-white/60">/visit</span></div>
+          <ul class="text-sm text-white/70 mt-3 space-y-1"><li>✓ 4.5–5 jam detail</li><li>✓ Belakang lemari & kolong</li><li>✓ Garansi 24 jam</li></ul>
+          <a data-wa="Halo RUMA TENANG, saya mau Deep Tenang." class="mt-4 bg-terracotta rounded-full py-2 text-center font-bold">Pilih Deep Tenang</a>
+        </div>
+        <div class="reveal bg-white border border-sand rounded-bento p-6 flex flex-col">
+          <img src="/images-v2/paket-rutin.jpg" class="rounded-xl h-36 w-full object-cover" alt="" />
+          <h3 class="font-display font-bold text-xl mt-4">Tenang Rutin</h3><div class="font-display font-extrabold text-3xl text-terracotta">Rp1.100.000 <span class="text-sm font-sans text-ink/50">/bulan</span></div>
+          <ul class="text-sm text-ink/60 mt-3 space-y-1"><li>✓ 4× kunjungan • crew sama</li><li>✓ Prioritas jadwal</li><li>✓ Rumah selalu tenang</li></ul>
+          <a data-wa="Halo RUMA TENANG, saya mau Tenang Rutin." class="mt-4 bg-white border border-sand rounded-full py-2 text-center font-bold">Pilih Tenang Rutin</a>
+        </div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="mt-10 reveal bg-white border border-sand rounded-bento overflow-hidden">
+        <div class="px-6 py-4 border-b border-sand font-display font-bold">Bandingkan — Mana yang Kamu Butuh?</div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-warm text-ink/60"><tr><th class="text-left p-3">Fitur</th><th class="p-3">Rapi</th><th class="p-3 bg-terracotta/10">Deep</th><th class="p-3">Rutin</th></tr></thead>
+            <tbody class="divide-y divide-sand">
+              <tr><td class="p-3 font-medium">Durasi</td><td class="p-3 text-center">2.5 jam</td><td class="p-3 text-center bg-terracotta/5 font-bold">5 jam</td><td class="p-3 text-center">2.5 jam ×4</td></tr>
+              <tr><td class="p-3 font-medium">Crew</td><td class="p-3 text-center">2</td><td class="p-3 text-center bg-terracotta/5">2</td><td class="p-3 text-center">2 tetap</td></tr>
+              <tr><td class="p-3 font-medium">Bawa alat</td><td class="p-3 text-center">✓</td><td class="p-3 text-center bg-terracotta/5">✓</td><td class="p-3 text-center">✓</td></tr>
+              <tr><td class="p-3 font-medium">Kolong & belakang lemari</td><td class="p-3 text-center">—</td><td class="p-3 text-center bg-terracotta/5">✓</td><td class="p-3 text-center">—</td></tr>
+              <tr><td class="p-3 font-medium">Garansi 24 jam</td><td class="p-3 text-center">✓</td><td class="p-3 text-center bg-terracotta/5">✓</td><td class="p-3 text-center">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Kalkulator -->
+      <div class="grid md:grid-cols-2 gap-6 mt-10 items-center">
+        <div class="reveal bg-warm border border-sand rounded-bento p-6">
+          <h2 class="font-display font-bold text-xl">Kalkulator — Geser Langsung Jadi</h2>
+          <label class="text-sm font-semibold mt-4 block">Luas: <span id="kalkulator-luas-label2" class="text-terracotta">85 m²</span></label>
+          <input id="kalkulator-luas2" type="range" min="30" max="200" value="85" class="w-full mt-2 accent-terracotta" />
+          <div class="flex justify-between text-xs text-ink/50"><span>30m²</span><span>200m²</span></div>
+          <label class="text-sm font-semibold mt-3 block">Paket</label>
+          <select id="kalkulator-paket2" class="w-full mt-1 rounded-full border border-sand px-4 py-2 bg-white"><option value="rapi">Rapi Cepat</option><option value="deep" selected>Deep Tenang</option><option value="rutin">Tenang Rutin</option></select>
+          <div class="flex items-center justify-between mt-4"><div><div class="text-xs text-ink/60">Estimasi</div><div id="kalkulator-out2" class="font-display font-extrabold text-3xl text-terracotta">Rp650.000</div></div><a id="kalkulator-wa2" data-wa="Halo RUMA TENANG" class="bg-terracotta text-white px-6 py-3 rounded-full font-bold">WA</a></div>
+        </div>
+        <div class="reveal"><img src="/images-v2/kalkulator-house.jpg" class="rounded-bento w-full h-[360px] object-cover border border-sand" alt="" /></div>
+      </div>
+
+      <!-- Guarantee -->
+      <div class="reveal mt-10 bg-charcoal text-white rounded-bento p-6 flex flex-col md:flex-row items-center gap-4 border-2 border-terracotta">
+        <div class="w-12 h-12 rounded-full bg-terracotta grid place-items-center text-xl">✓</div>
+        <div class="flex-1"><div class="font-display font-bold">Garansi 24 Jam — Tidak Puas Datang Lagi Gratis</div><div class="text-sm text-white/70">Tanpa debat, tanpa biaya. Foto sebelum-sesudah jadi bukti.</div></div>
+        <a data-wa="Halo RUMA TENANG, saya mau tanya garansi." class="bg-white text-charcoal px-6 py-2 rounded-full font-bold">Tanya Garansi</a>
+      </div>
+
+      <!-- FAQ harga -->
+      <div class="max-w-[760px] mx-auto mt-10">
+        <h2 class="font-display font-bold text-2xl text-center">FAQ Harga</h2>
+        <div class="mt-4 space-y-2">
+          <details class="bg-warm border border-sand rounded-bento p-4"><summary class="font-semibold cursor-pointer">Ada biaya transport?</summary><p class="text-sm text-ink/60 mt-2">Gratis Jabodetabek. Luar area WA dulu.</p></details>
+          <details class="bg-warm border border-sand rounded-bento p-4"><summary class="font-semibold cursor-pointer">Bisa custom?</summary><p class="text-sm text-ink/60 mt-2">Bisa — general cleaning campur sofa, hitung via WA.</p></details>
+          <details class="bg-warm border border-sand rounded-bento p-4"><summary class="font-semibold cursor-pointer">Kapan bayar?</summary><p class="text-sm text-ink/60 mt-2">Setelah kamu cek hasil, baru bayar.</p></details>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="bg-charcoal text-white/60 text-center text-xs py-6 mt-12">© 2026 RUMA TENANG by NESTA</footer>
+  <script>
+    const lu = document.getElementById('kalkulator-luas2');
+    const out = document.getElementById('kalkulator-out2');
+    const sel = document.getElementById('kalkulator-paket2');
+    const lab = document.getElementById('kalkulator-luas-label2');
+    const btn = document.getElementById('kalkulator-wa2');
+    const WA='6281234567890';
+    const link=m=>`https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
+    function upd(){
+      if(!lu||!out) return;
+      const v=parseInt(lu.value);
+      const p=sel?sel.value:'deep';
+      let h=p==='rapi'?350000:p==='deep'?650000:1100000;
+      if(v>120&&p!=='rutin') h+=Math.round((v-120)/10)*25000;
+      const msg=`Halo RUMA TENANG, rumah saya ${v}m² mau paket ${p}. Estimasi ${h.toLocaleString('id-ID')} ya?`;
+      out.textContent='Rp'+h.toLocaleString('id-ID');
+      if(lab) lab.textContent=v+' m²';
+      if(btn){btn.setAttribute('data-wa',msg); btn.setAttribute('href',link(msg));}
+    }
+    if(lu){lu.addEventListener('input',upd); sel&&sel.addEventListener('change',upd); upd();}
+  </script>
+</Base>
