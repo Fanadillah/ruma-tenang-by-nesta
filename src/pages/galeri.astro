@@ -8,14 +8,18 @@ import Breadcrumb from '../components/Breadcrumb.astro';
   <div class="pt-24 md:pt-28">
     <div class="max-w-[1120px] mx-auto px-4">
       <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Galeri'}]} />
-      <div class="text-center reveal mt-4">
-        <h1 class="font-display font-extrabold text-3xl md:text-4xl">Museum Bukti — <em class="text-terracotta">Bukan Filter</em></h1>
-        <p class="text-ink/60 mt-2">Geser slider, klik untuk lightbox. Caption: lokasi, luas, paket, durasi.</p>
-        <div class="flex justify-center gap-2 mt-4 flex-wrap" id="galeri-filter">
-          <button data-filter="all" class="filter-btn bg-charcoal text-white px-4 py-1.5 rounded-full text-sm font-bold">All</button>
-          <button data-filter="dapur" class="filter-btn bg-white border border-sand px-4 py-1.5 rounded-full text-sm">Dapur</button>
-          <button data-filter="kamar" class="filter-btn bg-white border border-sand px-4 py-1.5 rounded-full text-sm">Kamar Mandi</button>
-          <button data-filter="sofa" class="filter-btn bg-white border border-sand px-4 py-1.5 rounded-full text-sm">Sofa</button>
+      <div class="text-center reveal mt-4 max-w-[720px] mx-auto">
+        <span class="inline-flex bg-sage/15 border border-sage/20 text-sage px-3 py-1 rounded-full text-xs font-bold tracking-wide">Galeri • 100% Foto Asli</span>
+        <h1 class="font-display font-extrabold text-3xl md:text-4xl leading-none mt-3">Hasil Nyata — <em class="text-terracotta font-semibold">Sebelum & Sesudah</em></h1>
+        <p class="text-ink/60 mt-3 text-sm md:text-base">Bukan editan/filter. Geser slider untuk bandingkan, klik foto untuk perbesar. Setiap foto ada lokasi, luas & paket.</p>
+        <div class="mt-6">
+          <div class="text-xs font-bold tracking-[0.15em] uppercase text-ink/50 mb-2">Saring Kategori</div>
+          <div class="flex justify-center gap-2 flex-wrap" id="galeri-filter">
+            <button data-filter="all" class="filter-btn bg-charcoal text-white px-5 py-2 rounded-full text-sm font-bold min-h-[36px]">Semua</button>
+            <button data-filter="dapur" class="filter-btn bg-white border border-sand px-5 py-2 rounded-full text-sm min-h-[36px]">Dapur</button>
+            <button data-filter="kamar" class="filter-btn bg-white border border-sand px-5 py-2 rounded-full text-sm min-h-[36px]">Kamar Mandi</button>
+            <button data-filter="sofa" class="filter-btn bg-white border border-sand px-5 py-2 rounded-full text-sm min-h-[36px]">Sofa & Karpet</button>
+          </div>
         </div>
       </div>
 
@@ -64,8 +68,8 @@ import Breadcrumb from '../components/Breadcrumb.astro';
     const items = document.querySelectorAll('.galeri-item');
     btns.forEach(b=> b.addEventListener('click', ()=>{
       const f=b.getAttribute('data-filter');
-      btns.forEach(x=> x.className='filter-btn bg-white border border-sand px-4 py-1.5 rounded-full text-sm');
-      b.className='filter-btn bg-charcoal text-white px-4 py-1.5 rounded-full text-sm font-bold';
+      btns.forEach(x=> x.className='filter-btn bg-white border border-sand px-5 py-2 rounded-full text-sm min-h-[36px]');
+      b.className='filter-btn bg-charcoal text-white px-5 py-2 rounded-full text-sm font-bold min-h-[36px]';
       items.forEach(it=>{
         const c=it.getAttribute('data-cat');
         it.style.display = (f==='all'||c===f)?'':'none';
