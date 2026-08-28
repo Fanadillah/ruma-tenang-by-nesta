@@ -12,26 +12,26 @@ const isSofa = item.slug==='carpet-sofa';
 ---
 <Base title={item.title + ' | RUMA TENANG by NESTA'} description={item.desc}>
   <Navbar />
-  <div class="pt-28">
+  <div class="pt-24 md:pt-28">
     <div class="max-w-[1120px] mx-auto px-4">
       <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Layanan', href:'/layanan'}, {label:item.slug}]} />
       <!-- Hero layanan -->
-      <div class="grid lg:grid-cols-2 gap-8 mt-6 items-center">
+      <div class="grid lg:grid-cols-2 gap-6 md:gap-8 mt-5 md:mt-6 items-center">
         <div class="reveal">
           <span class="inline-flex bg-sage/15 border border-sage/20 text-sage px-3 py-1 rounded-full text-xs font-bold">{item.keyword}</span>
-          <h1 class="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-none mt-3">{item.title.split('—')[0]} <em class="text-terracotta">— {item.title.split('—')[1] || ''}</em></h1>
+          <h1 class="font-display font-extrabold text-[clamp(1.7rem,7vw,3rem)] leading-none mt-3">{item.title.split('—')[0]} <em class="text-terracotta">— {item.title.split('—')[1] || ''}</em></h1>
           <p class="text-ink/60 mt-3">{item.desc}</p>
           <div class="flex items-center gap-3 mt-4">
             <div class="font-display font-extrabold text-3xl text-terracotta">{item.harga}</div>
             <span class="bg-warm border border-sand px-3 py-1 rounded-full text-xs">Garansi 24 jam</span>
           </div>
-          <div class="flex gap-2 mt-4">
-            <a data-wa={`Halo RUMA TENANG, saya mau ${item.slug} untuk rumah di [lokasi]. Boleh estimasi?`} class="bg-terracotta text-white px-6 py-3 rounded-full font-bold">Pesan {item.slug} via WA</a>
-            <a href="/galeri" class="px-6 py-3 rounded-full border border-sand bg-white font-bold">Lihat Galeri</a>
+          <div class="flex flex-col sm:flex-row gap-2 mt-4">
+            <a data-wa={`Halo RUMA TENANG, saya mau ${item.slug} untuk rumah di [lokasi]. Boleh estimasi?`} class="bg-terracotta text-white px-6 py-3.5 rounded-full font-bold text-center min-h-[48px] flex items-center justify-center">Pesan {item.slug} via WA</a>
+            <a href="/galeri" class="px-6 py-3.5 rounded-full border border-sand bg-white font-bold text-center min-h-[48px] flex items-center justify-center">Lihat Galeri</a>
           </div>
         </div>
         <div class="reveal">
-          <img src={item.hero} class="rounded-bento w-full h-[380px] object-cover border border-sand shadow-xl" alt={item.title} />
+          <img src={item.hero} class="rounded-bento w-full h-[280px] md:h-[380px] object-cover border border-sand shadow-xl" alt={item.title} />
           <div class="grid grid-cols-3 gap-2 mt-3">
             {item.checklist.slice(0,3).map(c=> <div class="bg-white border border-sand rounded-2xl px-3 py-2 text-xs text-center">✓ {c}</div>)}
           </div>
@@ -39,18 +39,18 @@ const isSofa = item.slug==='carpet-sofa';
       </div>
 
       <!-- Before/After khusus -->
-      <div class="mt-12 bg-white border border-sand rounded-bento p-6 reveal">
-        <h2 class="font-display font-bold text-xl">Hasil {item.title.split('—')[0]} — Geser</h2>
+      <div class="mt-10 md:mt-12 bg-white border border-sand rounded-bento p-4 md:p-6 reveal">
+        <h2 class="font-display font-bold text-lg md:text-xl">Hasil {item.title.split('—')[0]} — Geser</h2>
         <div class="grid md:grid-cols-2 gap-4 mt-4">
-          <div data-ba class="relative rounded-bento overflow-hidden border border-sand h-56 cursor-ew-resize select-none touch-none">
+          <div data-ba class="relative rounded-bento overflow-hidden border border-sand h-48 md:h-56 cursor-ew-resize select-none touch-none">
             <img src={isSofa ? "/images-v2/ba-sofa-before.jpg" : "/images-v2/ba-dapur-before.jpg"} class="absolute inset-0 w-full h-full object-cover" alt="before" />
             <img data-ba-after src={isSofa ? "/images-v2/ba-sofa-after.jpg" : "/images-v2/ba-dapur-after.jpg"} class="absolute inset-0 w-full h-full object-cover" style="clip-path: inset(0 50% 0 0)" alt="after" />
-            <span data-ba-handle class="absolute top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-terracotta text-white grid place-items-center border-2 border-white" style="left:50%"><i class="fa-solid fa-arrows-left-right text-xs"></i></span>
+            <span data-ba-handle class="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-terracotta text-white grid place-items-center border-2 border-white" style="left:50%"><i class="fa-solid fa-arrows-left-right text-xs"></i></span>
           </div>
-          <div data-ba class="relative rounded-bento overflow-hidden border border-sand h-56 cursor-ew-resize select-none touch-none">
+          <div data-ba class="relative rounded-bento overflow-hidden border border-sand h-48 md:h-56 cursor-ew-resize select-none touch-none">
             <img src="/images-v2/ba-kamar-before.jpg" class="absolute inset-0 w-full h-full object-cover" alt="before" />
             <img data-ba-after src="/images-v2/ba-kamar-after.jpg" class="absolute inset-0 w-full h-full object-cover" style="clip-path: inset(0 50% 0 0)" alt="after" />
-            <span data-ba-handle class="absolute top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-terracotta text-white grid place-items-center border-2 border-white" style="left:50%"><i class="fa-solid fa-arrows-left-right text-xs"></i></span>
+            <span data-ba-handle class="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-terracotta text-white grid place-items-center border-2 border-white" style="left:50%"><i class="fa-solid fa-arrows-left-right text-xs"></i></span>
           </div>
         </div>
       </div>

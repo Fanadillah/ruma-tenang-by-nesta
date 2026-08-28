@@ -16,11 +16,11 @@ const lokasi = [
 ];
 const current = Astro.url.pathname;
 ---
-<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(96%,1220px)]">
-  <div class="bg-warm/90 backdrop-blur-xl border border-sand rounded-full px-3 py-2 flex items-center justify-between shadow-lg">
-    <a href="/" class="flex items-center gap-2 pl-2 shrink-0">
-      <span class="w-8 h-8 rounded-full bg-terracotta text-white grid place-items-center text-sm"><i class="fa-solid fa-house-chimney"></i></span>
-      <span class="font-display font-bold text-charcoal leading-none">RUMA TENANG <span class="font-sans font-semibold text-[9px] tracking-[0.3em] text-terracotta block -mt-0.5">by NESTA</span></span>
+<nav class="fixed top-3 md:top-4 left-1/2 -translate-x-1/2 z-50 w-[min(96%,1220px)]">
+  <div class="bg-warm/90 backdrop-blur-xl border border-sand rounded-full px-2 md:px-3 py-2 flex items-center justify-between shadow-lg">
+    <a href="/" class="flex items-center gap-2 pl-1 md:pl-2 shrink-0 min-w-0">
+      <span class="w-8 h-8 rounded-full bg-terracotta text-white grid place-items-center text-sm shrink-0"><i class="fa-solid fa-house-chimney"></i></span>
+      <span class="font-display font-bold text-charcoal leading-none text-sm md:text-base truncate">RUMA TENANG <span class="font-sans font-semibold text-[8px] md:text-[9px] tracking-[0.3em] text-terracotta block -mt-0.5">by NESTA</span></span>
     </a>
 
     <!-- Desktop -->
@@ -44,25 +44,31 @@ const current = Astro.url.pathname;
       <a href="/kontak" class={`px-3 py-2 rounded-full hover:bg-white ${current.startsWith('/kontak')?'bg-white text-terracotta':''}`}>Kontak</a>
     </div>
 
-    <div class="flex items-center gap-2">
-      <a data-wa="Halo RUMA TENANG by NESTA, saya mau konsultasi untuk rumah di [lokasi]. Boleh estimasi?" class="hidden sm:inline-flex items-center gap-2 bg-terracotta hover:bg-terracotta-dark text-white px-5 py-2 rounded-full text-sm font-bold shadow"><i class="fa-brands fa-whatsapp"></i> Konsultasi</a>
+    <div class="flex items-center gap-1.5 md:gap-2 shrink-0">
+      <a data-wa="Halo RUMA TENANG by NESTA, saya mau konsultasi untuk rumah di [lokasi]. Boleh estimasi?" class="hidden sm:inline-flex items-center gap-2 bg-terracotta hover:bg-terracotta-dark text-white px-3 md:px-5 py-2 md:py-2 rounded-full text-xs md:text-sm font-bold shadow min-h-[36px] md:min-h-0"><i class="fa-brands fa-whatsapp"></i> <span class="hidden md:inline">Konsultasi</span><span class="md:hidden">WA</span></a>
       <!-- Mobile toggle -->
-      <button id="nav-toggle" class="lg:hidden w-9 h-9 rounded-full bg-white border border-sand grid place-items-center"><i class="fa-solid fa-bars"></i></button>
+      <button id="nav-toggle" class="lg:hidden w-10 h-10 rounded-full bg-white border border-sand grid place-items-center shrink-0" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
 
   <!-- Mobile menu -->
-  <div id="nav-mobile" class="hidden lg:hidden mt-2 bg-white border border-sand rounded-3xl shadow-xl p-4 max-h-[70vh] overflow-auto">
+  <div id="nav-mobile" class="hidden lg:hidden mt-2 bg-white border border-sand rounded-3xl shadow-xl p-4 max-h-[75vh] overflow-auto">
     <div class="space-y-3 text-sm">
-      <div><div class="font-bold text-charcoal mb-1">Layanan</div><div class="grid grid-cols-2 gap-1">{layanan.map(l=> <a href={l.href} class="px-3 py-2 rounded-xl bg-warm hover:bg-sand block">{l.label}</a>)}<a href="/layanan" class="col-span-2 text-center bg-charcoal text-white rounded-xl py-2">Semua Layanan</a></div></div>
-      <div><div class="font-bold text-charcoal mb-1">Lokasi</div><div class="flex flex-wrap gap-1">{lokasi.map(l=> <a href={l.href} class="px-3 py-1.5 rounded-full bg-warm border border-sand">{l.label}</a>)}</div></div>
-      <div class="flex flex-wrap gap-1"><a href="/harga" class="flex-1 text-center px-3 py-2 rounded-full border border-sand">Harga</a><a href="/galeri" class="flex-1 text-center px-3 py-2 rounded-full border border-sand">Galeri</a><a href="/tentang" class="flex-1 text-center px-3 py-2 rounded-full border border-sand">Tentang</a><a href="/kontak" class="flex-1 text-center px-3 py-2 rounded-full border border-sand">Kontak</a></div>
-      <a data-wa="Halo RUMA TENANG by NESTA, saya mau konsultasi." class="block text-center bg-terracotta text-white rounded-full py-3 font-bold">Chat WhatsApp</a>
+      <div><div class="font-bold text-charcoal mb-2">Layanan</div><div class="grid grid-cols-2 gap-1.5">{layanan.map(l=> <a href={l.href} class="px-3 py-2.5 rounded-xl bg-warm hover:bg-sand block text-center min-h-[44px] flex items-center justify-center">{l.label}</a>)}<a href="/layanan" class="col-span-2 text-center bg-charcoal text-white rounded-xl py-2.5 font-bold">Semua Layanan</a></div></div>
+      <div><div class="font-bold text-charcoal mb-2">Lokasi</div><div class="flex flex-wrap gap-1.5">{lokasi.map(l=> <a href={l.href} class="px-3 py-2 rounded-full bg-warm border border-sand min-h-[36px]">{l.label}</a>)}</div></div>
+      <div class="grid grid-cols-2 gap-1.5"><a href="/harga" class="text-center px-3 py-2.5 rounded-full border border-sand bg-white min-h-[44px] flex items-center justify-center">Harga</a><a href="/galeri" class="text-center px-3 py-2.5 rounded-full border border-sand bg-white min-h-[44px] flex items-center justify-center">Galeri</a><a href="/tentang" class="text-center px-3 py-2.5 rounded-full border border-sand bg-white min-h-[44px] flex items-center justify-center">Tentang</a><a href="/kontak" class="text-center px-3 py-2.5 rounded-full border border-sand bg-white min-h-[44px] flex items-center justify-center">Kontak</a></div>
+      <a data-wa="Halo RUMA TENANG by NESTA, saya mau konsultasi." class="block text-center bg-terracotta text-white rounded-full py-3.5 font-bold min-h-[48px] flex items-center justify-center">Chat WhatsApp</a>
     </div>
   </div>
 </nav>
 <script>
   const btn = document.getElementById('nav-toggle');
   const menu = document.getElementById('nav-mobile');
-  if(btn && menu){ btn.addEventListener('click', ()=> menu.classList.toggle('hidden')); }
+  if(btn && menu){
+    btn.addEventListener('click', ()=> menu.classList.toggle('hidden'));
+    menu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> menu.classList.add('hidden')));
+    document.addEventListener('click', (e)=>{
+      if(!menu.classList.contains('hidden') && !menu.contains(e.target) && !btn.contains(e.target)) menu.classList.add('hidden');
+    });
+  }
 </script>

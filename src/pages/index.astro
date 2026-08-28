@@ -13,29 +13,29 @@ import Navbar from '../components/Navbar.astro';
   </div>
 
   <!-- 01 HERO -->
-  <header id="top" class="pt-28 pb-10 bg-warm">
-    <div class="max-w-[1120px] mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center">
+  <header id="top" class="pt-24 md:pt-28 pb-8 md:pb-10 bg-warm">
+    <div class="max-w-[1120px] mx-auto px-4 grid lg:grid-cols-2 gap-6 md:gap-8 items-center">
       <div class="reveal">
         <span class="inline-flex items-center gap-2 bg-sage/15 border border-sage/20 text-sage px-3 py-1 rounded-full text-xs font-semibold tracking-wide">RUMA TENANG by NESTA — Sejak 2018 • Tim terverifikasi</span>
-        <h1 class="font-display font-extrabold text-charcoal leading-[0.95] text-[clamp(2.6rem,6vw,4.4rem)] mt-4">Rumah Pulang <em class="font-display font-semibold text-terracotta">Jadi Tenang.</em></h1>
-        <p class="text-ink/70 text-lg mt-4 max-w-[560px]">Bukan cuma bersih. Kami kembalikan waktu, napas lega, dan sudut yang akhirnya rapi. Tim NESTA datang, kamu cek, bayar jika puas.</p>
-        <div class="flex flex-wrap gap-3 mt-6">
-          <a data-wa="Halo RUMA TENANG by NESTA, saya mau konsultasi untuk rumah di [lokasi]. Boleh estimasi?" class="bg-terracotta hover:bg-terracotta-dark text-white px-6 py-3 rounded-full font-bold inline-flex items-center gap-2"><i class="fa-brands fa-whatsapp"></i> Konsultasi via WhatsApp</a>
-          <a href="#hasil" class="px-6 py-3 rounded-full border border-sand bg-white font-semibold inline-flex items-center gap-2"><i class="fa-solid fa-images"></i> Lihat Hasil Nyata</a>
+        <h1 class="font-display font-extrabold text-charcoal leading-[0.95] text-[clamp(2rem,8vw,4.4rem)] mt-3 md:mt-4">Rumah Pulang <em class="font-display font-semibold text-terracotta">Jadi Tenang.</em></h1>
+        <p class="text-ink/70 text-base md:text-lg mt-3 md:mt-4 max-w-[560px]">Bukan cuma bersih. Kami kembalikan waktu, napas lega, dan sudut yang akhirnya rapi. Tim NESTA datang, kamu cek, bayar jika puas.</p>
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3 mt-5 md:mt-6">
+          <a data-wa="Halo RUMA TENANG by NESTA, saya mau konsultasi untuk rumah di [lokasi]. Boleh estimasi?" class="bg-terracotta hover:bg-terracotta-dark text-white px-6 py-3.5 rounded-full font-bold inline-flex items-center justify-center gap-2 min-h-[48px]"><i class="fa-brands fa-whatsapp"></i> Konsultasi via WhatsApp</a>
+          <a href="#hasil" class="px-6 py-3.5 rounded-full border border-sand bg-white font-semibold inline-flex items-center justify-center gap-2 min-h-[48px]"> <i class="fa-solid fa-images"></i> Lihat Hasil Nyata</a>
         </div>
-        <div class="flex flex-wrap items-center gap-3 mt-6 text-sm">
+        <div class="flex flex-wrap items-center gap-2 md:gap-3 mt-5 md:mt-6 text-sm">
           <span class="inline-flex items-center gap-1.5 bg-white border border-sand px-3 py-1.5 rounded-full"><span class="text-amber-500">★★★★★</span> 4.9/5 dari 847 ulasan</span>
-          <span class="text-ink/60">500+ keluarga • Garansi</span>
+          <span class="text-ink/60 text-xs md:text-sm">500+ keluarga • Garansi</span>
         </div>
       </div>
       <div class="reveal relative">
         <div class="rounded-bento overflow-hidden border border-sand shadow-xl bg-white">
-          <img src="/images-v2/hero-human.jpg" alt="Tim NESTA di pintu rumah" class="w-full h-[520px] object-cover" loading="eager" fetchpriority="high" />
-          <div class="absolute bottom-4 left-4 right-4 flex gap-3">
-            <div class="bg-white/95 backdrop-blur border border-sand rounded-2xl px-4 py-3 flex-1">
-              <div class="text-xs text-ink/60">Dikerjakan</div><div class="font-bold">2.5 jam • 2 crew • Bawa alat</div>
+          <img src="/images-v2/hero-human.jpg" alt="Tim NESTA di pintu rumah" class="w-full h-[360px] sm:h-[420px] lg:h-[520px] object-cover" loading="eager" fetchpriority="high" />
+          <div class="absolute bottom-3 left-3 right-3 flex flex-col sm:flex-row gap-2 md:gap-3">
+            <div class="bg-white/95 backdrop-blur border border-sand rounded-2xl px-3 md:px-4 py-2.5 md:py-3 flex-1">
+              <div class="text-xs text-ink/60">Dikerjakan</div><div class="font-bold text-sm md:text-base">2.5 jam • 2 crew • Bawa alat</div>
             </div>
-            <div class="bg-charcoal text-white rounded-2xl px-4 py-3 text-sm font-semibold">Geser slider di bawah ↓</div>
+            <div class="bg-charcoal text-white rounded-2xl px-3 md:px-4 py-2 md:py-3 text-xs md:text-sm font-semibold text-center">Geser slider di bawah ↓</div>
           </div>
         </div>
       </div>
@@ -43,21 +43,21 @@ import Navbar from '../components/Navbar.astro';
   </header>
 
   <!-- 02 SOCIAL PROOF -->
-  <section class="bg-white border-y border-sand py-4">
-    <div class="max-w-[1120px] mx-auto px-4 flex flex-wrap items-center justify-between gap-4 text-sm">
-      <div class="flex -space-x-2"><img src="/images-v2/avatar-1.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="pelanggan" /><img src="/images-v2/avatar-2.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="pelanggan" /><img src="/images-v2/avatar-3.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="pelanggan" /><img src="/images-v2/avatar-4.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="pelanggan" /><span class="w-8 h-8 rounded-full bg-sand grid place-items-center text-xs font-bold border-2 border-white">+500</span></div>
-      <div class="font-medium text-ink/70">Dipercaya keluarga di Jakarta • Bekasi • Depok • Tangerang • Bogor</div>
+  <section class="bg-white border-y border-sand py-3 md:py-4">
+    <div class="max-w-[1120px] mx-auto px-4 flex flex-col md:flex-row flex-wrap items-center justify-between gap-3 md:gap-4 text-sm">
+      <div class="flex -space-x-2 shrink-0"><img src="/images-v2/avatar-1.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="pelanggan" /><img src="/images-v2/avatar-2.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="pelanggan" /><img src="/images-v2/avatar-3.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="pelanggan" /><img src="/images-v2/avatar-4.jpg" class="w-8 h-8 rounded-full border-2 border-white" alt="pelanggan" /><span class="w-8 h-8 rounded-full bg-sand grid place-items-center text-xs font-bold border-2 border-white">+500</span></div>
+      <div class="font-medium text-ink/70 text-center text-xs md:text-sm">Dipercaya keluarga di Jakarta • Bekasi • Depok • Tangerang • Bogor</div>
       <div class="hidden md:flex gap-6 opacity-60 font-display font-bold text-charcoal"><span>Graha Kirana</span><span>Sehat Prima</span><span>Nusantara Inn</span></div>
     </div>
   </section>
 
   <!-- 03 BENTO -->
-  <section class="max-w-[1120px] mx-auto px-4 py-14">
+  <section class="max-w-[1120px] mx-auto px-4 py-10 md:py-14">
     <div class="text-center reveal">
       <span class="text-terracotta text-xs font-bold tracking-[0.2em] uppercase">Kenapa RUMA TENANG</span>
-      <h2 class="font-display font-bold text-3xl mt-2">Bukan cuma sapu-pel. Kami bereskan yang bikin capek.</h2>
+      <h2 class="font-display font-bold text-2xl md:text-3xl mt-2 px-2">Bukan cuma sapu-pel. Kami bereskan yang bikin capek.</h2>
     </div>
-    <div class="grid md:grid-cols-3 gap-4 mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 md:mt-8">
       <div class="reveal bg-white border border-sand rounded-bento p-6">
         <img src="/images-v2/bento-debu.jpg" class="rounded-xl w-full h-40 object-cover" alt="Sudut rumah berdebu" loading="lazy" />
         <h3 class="font-display font-bold text-lg mt-4">Debu balik lagi besok?</h3><p class="text-sm text-ink/60 mt-1">Kami bersihkan sampai sudut langit-langit & belakang lemari, bukan cuma yang terlihat.</p>
@@ -74,20 +74,20 @@ import Navbar from '../components/Navbar.astro';
   </section>
 
   <!-- 04 BEFORE AFTER -->
-  <section id="hasil" class="bg-white border-y border-sand py-14">
+  <section id="hasil" class="bg-white border-y border-sand py-10 md:py-14">
     <div class="max-w-[1120px] mx-auto px-4">
-      <div class="text-center reveal"><span class="text-sage text-xs font-bold tracking-[0.2em] uppercase">Hasil Nyata</span><h2 class="font-display font-bold text-3xl mt-2">Geser untuk lihat — bukan filter.</h2><p class="text-ink/60 mt-2">3 kasus paling sering. Foto angle sama, cahaya sama.</p></div>
-      <div class="grid md:grid-cols-3 gap-6 mt-8">
+      <div class="text-center reveal"><span class="text-sage text-xs font-bold tracking-[0.2em] uppercase">Hasil Nyata</span><h2 class="font-display font-bold text-2xl md:text-3xl mt-2">Geser untuk lihat — bukan filter.</h2><p class="text-ink/60 mt-2 text-sm md:text-base">3 kasus paling sering. Foto angle sama, cahaya sama.</p></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mt-6 md:mt-8">
         {[
           {t:'Dapur Berminyak → Kinclong', b:'/images-v2/ba-dapur-before.jpg', a:'/images-v2/ba-dapur-after.jpg'},
           {t:'Kamar Mandi Berkerak → Kesat', b:'/images-v2/ba-kamar-before.jpg', a:'/images-v2/ba-kamar-after.jpg'},
           {t:'Sofa Kusam → Segar', b:'/images-v2/ba-sofa-before.jpg', a:'/images-v2/ba-sofa-after.jpg'},
         ].map(i => (
           <div class="reveal">
-            <div data-ba class="relative rounded-bento overflow-hidden border border-sand select-none touch-none cursor-ew-resize h-56">
+            <div data-ba class="relative rounded-bento overflow-hidden border border-sand select-none touch-none cursor-ew-resize h-48 sm:h-56">
               <img src={i.b} class="absolute inset-0 w-full h-full object-cover" alt="before" />
               <img data-ba-after src={i.a} class="absolute inset-0 w-full h-full object-cover" style="clip-path: inset(0 50% 0 0)" alt="after" />
-              <span data-ba-handle class="absolute top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-terracotta text-white grid place-items-center border-2 border-white shadow" style="left:50%"><i class="fa-solid fa-arrows-left-right text-xs"></i></span>
+              <span data-ba-handle class="absolute top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-terracotta text-white grid place-items-center border-2 border-white shadow" style="left:50%"><i class="fa-solid fa-arrows-left-right text-xs"></i></span>
               <span class="absolute top-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded-full">Before</span>
               <span class="absolute top-2 right-2 bg-terracotta text-white text-xs px-2 py-1 rounded-full">After</span>
             </div>
@@ -119,10 +119,10 @@ import Navbar from '../components/Navbar.astro';
   </section>
 
   <!-- 06 PAKET -->
-  <section id="paket" class="bg-white border-y border-sand py-14">
+  <section id="paket" class="bg-white border-y border-sand py-10 md:py-14">
     <div class="max-w-[1120px] mx-auto px-4">
-      <div class="text-center reveal"><span class="text-terracotta text-xs font-bold tracking-[0.2em] uppercase">Paket</span><h2 class="font-display font-bold text-3xl mt-2">Pilih yang pas — harga transparan.</h2></div>
-      <div class="grid md:grid-cols-3 gap-6 mt-8">
+      <div class="text-center reveal"><span class="text-terracotta text-xs font-bold tracking-[0.2em] uppercase">Paket</span><h2 class="font-display font-bold text-2xl md:text-3xl mt-2">Pilih yang pas — harga transparan.</h2></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mt-6 md:mt-8">
         <div class="reveal bg-warm border border-sand rounded-bento p-6 flex flex-col">
           <img src="/images-v2/paket-rapi.jpg" class="rounded-xl h-36 w-full object-cover" alt="Paket Rapi Cepat" loading="lazy" />
           <h3 class="font-display font-bold text-xl mt-4">Rapi Cepat</h3><div class="font-display font-extrabold text-2xl text-terracotta">Rp350.000 <span class="text-sm font-sans font-medium text-ink/50">/ kunjungan</span></div>
@@ -166,25 +166,25 @@ import Navbar from '../components/Navbar.astro';
   </section>
 
   <!-- 08 KALKULATOR -->
-  <section id="harga" class="bg-white border-y border-sand py-14">
-    <div class="max-w-[1120px] mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+  <section id="harga" class="bg-white border-y border-sand py-10 md:py-14">
+    <div class="max-w-[1120px] mx-auto px-4 grid md:grid-cols-2 gap-6 md:gap-8 items-center">
       <div class="reveal">
-        <h2 class="font-display font-bold text-3xl">Estimasi harga — geser, langsung jadi.</h2>
-        <p class="text-ink/60 mt-2">Transparan. Tidak ada biaya tersembunyi. Final tetap konfirmasi WA.</p>
-        <div class="mt-6 bg-warm border border-sand rounded-bento p-6">
+        <h2 class="font-display font-bold text-2xl md:text-3xl">Estimasi harga — geser, langsung jadi.</h2>
+        <p class="text-ink/60 mt-2 text-sm md:text-base">Transparan. Tidak ada biaya tersembunyi. Final tetap konfirmasi WA.</p>
+        <div class="mt-6 bg-warm border border-sand rounded-bento p-4 md:p-6">
           <label class="text-sm font-semibold">Luas rumah: <span id="kalkulator-luas-label" class="text-terracotta">85 m²</span></label>
-          <input id="kalkulator-luas" type="range" min="30" max="200" value="85" class="w-full mt-2 accent-terracotta" />
-          <div class="flex justify-between text-xs text-ink/50"><span>30m²</span><span>200m²</span></div>
+          <input id="kalkulator-luas" type="range" min="30" max="200" value="85" class="w-full mt-3 h-2 accent-terracotta" />
+          <div class="flex justify-between text-xs text-ink/50 mt-1"><span>30m²</span><span>200m²</span></div>
           <label class="text-sm font-semibold mt-4 block">Paket</label>
-          <select id="kalkulator-paket" class="w-full mt-1 rounded-full border border-sand px-4 py-2 bg-white"><option value="rapi">Rapi Cepat</option><option value="deep" selected>Deep Tenang</option><option value="rutin">Tenang Rutin</option></select>
-          <div class="mt-6 flex items-center justify-between">
-            <div><div class="text-xs text-ink/60">Estimasi</div><div id="kalkulator-out" class="font-display font-extrabold text-3xl text-terracotta">Rp650.000</div></div>
-            <a id="kalkulator-wa" data-wa="Halo RUMA TENANG by NESTA" class="bg-terracotta text-white px-6 py-3 rounded-full font-bold">Konsultasi WA</a>
+          <select id="kalkulator-paket" class="w-full mt-2 rounded-full border border-sand px-4 py-3 bg-white min-h-[48px]"><option value="rapi">Rapi Cepat</option><option value="deep" selected>Deep Tenang</option><option value="rutin">Tenang Rutin</option></select>
+          <div class="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div><div class="text-xs text-ink/60">Estimasi</div><div id="kalkulator-out" class="font-display font-extrabold text-2xl md:text-3xl text-terracotta">Rp650.000</div></div>
+            <a id="kalkulator-wa" data-wa="Halo RUMA TENANG by NESTA" class="bg-terracotta text-white px-6 py-3.5 rounded-full font-bold text-center min-h-[48px] flex items-center justify-center">Konsultasi WA</a>
           </div>
         </div>
       </div>
       <div class="reveal">
-        <img src="/images-v2/kalkulator-house.jpg" class="rounded-bento w-full h-[420px] object-cover border border-sand" alt="Interior rumah rapi" loading="lazy" />
+        <img src="/images-v2/kalkulator-house.jpg" class="rounded-bento w-full h-[280px] md:h-[420px] object-cover border border-sand" alt="Interior rumah rapi" loading="lazy" />
       </div>
     </div>
   </section>
@@ -228,32 +228,32 @@ import Navbar from '../components/Navbar.astro';
   </section>
 
   <!-- 12 FINAL CTA -->
-  <section id="kontak" class="relative py-16">
+  <section id="kontak" class="relative py-12 md:py-16">
     <img src="/images-v2/cta-sunset.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Rumah sunset tenang" loading="lazy" />
     <div class="absolute inset-0 bg-charcoal/65"></div>
-    <div class="relative max-w-[1120px] mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+    <div class="relative max-w-[1120px] mx-auto px-4 grid md:grid-cols-2 gap-6 md:gap-8 items-center">
       <div class="reveal text-white">
-        <h2 class="font-display font-extrabold text-4xl leading-tight">Siap pulang <em class="text-white/90">jadi tenang?</em></h2>
-        <p class="text-white/80 mt-3">Kirim alamatmu, kami balas estimasi dalam 1 jam. Konsultasi gratis.</p>
-        <div class="flex flex-wrap gap-2 mt-4 text-xs"><span class="bg-white/15 px-3 py-1 rounded-full">Konsultasi gratis</span><span class="bg-white/15 px-3 py-1 rounded-full">Garansi</span><span class="bg-white/15 px-3 py-1 rounded-full">Balas &lt;1 jam</span></div>
+        <h2 class="font-display font-extrabold text-3xl md:text-4xl leading-tight">Siap pulang <em class="text-white/90">jadi tenang?</em></h2>
+        <p class="text-white/80 mt-3 text-sm md:text-base">Kirim alamatmu, kami balas estimasi dalam 1 jam. Konsultasi gratis.</p>
+        <div class="flex flex-wrap gap-2 mt-4 text-xs"><span class="bg-white/15 px-3 py-1.5 rounded-full">Konsultasi gratis</span><span class="bg-white/15 px-3 py-1.5 rounded-full">Garansi</span><span class="bg-white/15 px-3 py-1.5 rounded-full">Balas &lt;1 jam</span></div>
       </div>
-      <form class="reveal bg-warm rounded-bento p-6 border border-sand" onsubmit="event.preventDefault(); const v=this.alamat.value; window.open('https://wa.me/6281234567890?text='+encodeURIComponent('Halo RUMA TENANG by NESTA, alamat saya di '+v+' . Boleh estimasi?'),'_blank')">
+      <form class="reveal bg-warm rounded-bento p-5 md:p-6 border border-sand" onsubmit="event.preventDefault(); const v=this.alamat.value; window.open('https://wa.me/6281234567890?text='+encodeURIComponent('Halo RUMA TENANG by NESTA, alamat saya di '+v+' . Boleh estimasi?'),'_blank')">
         <label class="text-sm font-semibold">Alamat kamu di mana?</label>
-        <input name="alamat" placeholder="Contoh: Apartemen Green Pramuka, 2BR 60m²" class="w-full mt-2 rounded-full border border-sand px-4 py-3" required />
-        <button class="w-full mt-3 bg-terracotta hover:bg-terracotta-dark text-white rounded-full py-3 font-bold inline-flex justify-center items-center gap-2"><i class="fa-brands fa-whatsapp"></i> Konsultasi via WhatsApp</button>
+        <input name="alamat" placeholder="Contoh: Apartemen Green Pramuka, 2BR 60m²" class="w-full mt-2 rounded-full border border-sand px-4 py-3.5 min-h-[48px]" required />
+        <button class="w-full mt-3 bg-terracotta hover:bg-terracotta-dark text-white rounded-full py-3.5 font-bold inline-flex justify-center items-center gap-2 min-h-[48px]"><i class="fa-brands fa-whatsapp"></i> Konsultasi via WhatsApp</button>
         <p class="text-xs text-ink/50 mt-2 text-center">Atau chat langsung — balas cepat 08.00-17.00 WIB</p>
       </form>
     </div>
   </section>
 
-  <footer class="bg-charcoal text-white/70 py-10">
-    <div class="max-w-[1120px] mx-auto px-4 grid md:grid-cols-4 gap-6 text-sm">
-      <div><div class="font-display font-bold text-white">RUMA TENANG <span class="text-terracotta text-xs block">by NESTA</span></div><p class="mt-2">Jasa merapikan rumah yang mengembalikan tenangmu di Jabodetabek.</p></div>
-      <div><div class="font-bold text-white">Navigasi</div><div class="mt-2 space-y-1"><a href="#hasil" class="block hover:text-white">Hasil</a><a href="#tim" class="block hover:text-white">Tim</a><a href="#paket" class="block hover:text-white">Paket</a></div></div>
-      <div><div class="font-bold text-white">Layanan</div><div class="mt-2 space-y-1">Rapi Cepat • Deep Tenang • Tenang Rutin</div></div>
-      <div><div class="font-bold text-white">Kontak</div><div class="mt-2">Jl. Contoh Raya No.123 [GANTI]<br/>WA 0812-XXXX-XXXX<br/>halo@rumatenang.id</div></div>
+  <footer class="bg-charcoal text-white/70 py-8 md:py-10">
+    <div class="max-w-[1120px] mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-6 text-sm">
+      <div class="col-span-2 md:col-span-1"><div class="font-display font-bold text-white">RUMA TENANG <span class="text-terracotta text-xs block">by NESTA</span></div><p class="mt-2 text-xs md:text-sm">Jasa merapikan rumah yang mengembalikan tenangmu di Jabodetabek.</p></div>
+      <div><div class="font-bold text-white">Navigasi</div><div class="mt-2 space-y-1.5"><a href="#hasil" class="block hover:text-white py-1">Hasil</a><a href="#tim" class="block hover:text-white py-1">Tim</a><a href="#paket" class="block hover:text-white py-1">Paket</a></div></div>
+      <div><div class="font-bold text-white">Layanan</div><div class="mt-2 space-y-1.5 text-xs md:text-sm">Rapi Cepat • Deep Tenang • Tenang Rutin</div></div>
+      <div class="col-span-2 md:col-span-1"><div class="font-bold text-white">Kontak</div><div class="mt-2 text-xs md:text-sm">Jl. Contoh Raya No.123 [GANTI]<br/>WA 0812-XXXX-XXXX<br/>halo@rumatenang.id</div></div>
     </div>
-    <div class="text-center text-xs text-white/40 mt-8">© 2026 RUMA TENANG by NESTA. All rights reserved.</div>
+    <div class="text-center text-xs text-white/40 mt-8 px-4">© 2026 RUMA TENANG by NESTA. All rights reserved.</div>
   </footer>
 
   <!-- WA FLOAT + BTT -->

@@ -5,32 +5,32 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 ---
 <Base title="Tentang RUMA TENANG by NESTA — Dari Hotel Bintang 5 ke Rumahmu" description="Cerita NESTA sejak 2018, tim terverifikasi, SOP foto sebelum-sesudah, training 14 hari. Kenapa 500+ keluarga pilih RUMA TENANG.">
   <Navbar />
-  <div class="pt-28">
+  <div class="pt-24 md:pt-28">
     <!-- Hero Story -->
     <div class="max-w-[1120px] mx-auto px-4">
       <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Tentang'}]} />
-      <div class="grid lg:grid-cols-2 gap-8 mt-6 items-center">
+      <div class="grid lg:grid-cols-2 gap-6 md:gap-8 mt-5 md:mt-6 items-center">
         <div class="reveal">
           <span class="inline-flex items-center gap-2 bg-sage/15 border border-sage/20 text-sage px-3 py-1 rounded-full text-xs font-bold tracking-wide">Sejak 2018 • Hotel Standard → Home</span>
-          <h1 class="font-display font-extrabold text-charcoal text-[clamp(2.2rem,5vw,3.4rem)] leading-none mt-3">Dari Hotel <em class="text-terracotta">Bintang 5</em> ke Rumahmu.</h1>
-          <p class="text-ink/70 mt-4">NESTA lahir dari tim housekeeping hotel yang bosan lihat rumah klien berantakan. RUMA TENANG adalah brand yang kamu izinkan masuk rumah — SOP hotel, hati tetangga.</p>
-          <div class="flex gap-3 mt-6">
+          <h1 class="font-display font-extrabold text-charcoal text-[clamp(1.8rem,7vw,3.4rem)] leading-none mt-3">Dari Hotel <em class="text-terracotta">Bintang 5</em> ke Rumahmu.</h1>
+          <p class="text-ink/70 mt-3 md:mt-4 text-sm md:text-base">NESTA lahir dari tim housekeeping hotel yang bosan lihat rumah klien berantakan. RUMA TENANG adalah brand yang kamu izinkan masuk rumah — SOP hotel, hati tetangga.</p>
+          <div class="flex gap-2 md:gap-3 mt-5 md:mt-6">
             <div class="bg-white border border-sand rounded-2xl px-4 py-3 text-center flex-1"><div class="font-display font-extrabold text-2xl text-terracotta">2018</div><div class="text-xs text-ink/60">Sejak</div></div>
             <div class="bg-white border border-sand rounded-2xl px-4 py-3 text-center flex-1"><div class="font-display font-extrabold text-2xl text-terracotta">500+</div><div class="text-xs text-ink/60">Keluarga</div></div>
             <div class="bg-white border border-sand rounded-2xl px-4 py-3 text-center flex-1"><div class="font-display font-extrabold text-2xl text-terracotta">4.9★</div><div class="text-xs text-ink/60">847 ulasan</div></div>
           </div>
         </div>
         <div class="reveal">
-          <img src="/images-v2/hero-human.jpg" alt="Tim NESTA" class="rounded-bento w-full h-[420px] object-cover border border-sand shadow-xl" />
+          <img src="/images-v2/hero-human.jpg" alt="Tim NESTA" class="rounded-bento w-full h-[300px] md:h-[420px] object-cover border border-sand shadow-xl" />
           <div class="bg-white border border-sand rounded-2xl p-3 mt-3 flex items-center gap-3"><img src="/images-v2/avatar-1.jpg" class="w-10 h-10 rounded-full" alt="" /><div class="text-sm"><div class="font-bold">Sari — Lead Crew, 4 tahun</div><div class="text-ink/60">“Rumah harus wangi, bukan cuma bersih.”</div></div></div>
         </div>
       </div>
     </div>
 
     <!-- Timeline -->
-    <div class="max-w-[1120px] mx-auto px-4 mt-14">
-      <h2 class="font-display font-bold text-2xl text-center reveal">Perjalanan NESTA</h2>
-      <div class="grid md:grid-cols-3 gap-4 mt-6">
+    <div class="max-w-[1120px] mx-auto px-4 mt-10 md:mt-14">
+      <h2 class="font-display font-bold text-xl md:text-2xl text-center reveal">Perjalanan NESTA</h2>
+      <div class="grid md:grid-cols-3 gap-3 md:gap-4 mt-5 md:mt-6">
         <div class="reveal bg-white border border-sand rounded-bento p-6"><div class="text-terracotta font-bold">2018</div><div class="font-display font-bold mt-1">Mulai dari 2 crew di Jakarta Selatan</div><p class="text-sm text-ink/60 mt-2">Housekeeping hotel bawa SOP foto sebelum-sesudah ke rumah pertama.</p></div>
         <div class="reveal bg-white border border-sand rounded-bento p-6"><div class="text-terracotta font-bold">2020</div><div class="font-display font-bold mt-1">500 keluarga & SOP Eco</div><p class="text-sm text-ink/60 mt-2">Cairan sage aman anak/hewan, training 14 hari wajib.</p></div>
         <div class="reveal bg-charcoal text-white rounded-bento p-6 border-2 border-terracotta"><div class="text-terracotta font-bold">2024 — RUMA TENANG</div><div class="font-display font-bold mt-1">Brand yang kamu izinkan masuk</div><p class="text-sm text-white/70 mt-2">One-scroll trust, kalkulator harga, garansi 24 jam.</p></div>
@@ -38,9 +38,9 @@ import Breadcrumb from '../components/Breadcrumb.astro';
     </div>
 
     <!-- Nilai -->
-    <div class="max-w-[1120px] mx-auto px-4 mt-14">
-      <h2 class="font-display font-bold text-2xl text-center reveal">3 Nilai yang Tidak Kami Tawar</h2>
-      <div class="grid md:grid-cols-3 gap-4 mt-6">
+    <div class="max-w-[1120px] mx-auto px-4 mt-10 md:mt-14">
+      <h2 class="font-display font-bold text-xl md:text-2xl text-center reveal">3 Nilai yang Tidak Kami Tawar</h2>
+      <div class="grid md:grid-cols-3 gap-3 md:gap-4 mt-5 md:mt-6">
         <div class="reveal bg-white border border-sand rounded-bento p-6"><div class="w-10 h-10 rounded-xl bg-terracotta text-white grid place-items-center"><i class="fa-solid fa-shield-halved"></i></div><h3 class="font-bold mt-3">Aman & Terverifikasi</h3><p class="text-sm text-ink/60">KTP, training, SOP buka sepatu, foto sebelum-sesudah.</p><img src="/images-v2/team-sari.jpg" class="rounded-xl mt-3 h-28 w-full object-cover" alt="" /></div>
         <div class="reveal bg-white border border-sand rounded-bento p-6"><div class="w-10 h-10 rounded-xl bg-sage text-white grid place-items-center"><i class="fa-solid fa-leaf"></i></div><h3 class="font-bold mt-3">Eco & Aman Anak</h3><p class="text-sm text-ink/60">Cairan sage, tidak perih, wangi lembut.</p><img src="/images-v2/bento-sofa.jpg" class="rounded-xl mt-3 h-28 w-full object-cover" alt="" /></div>
         <div class="reveal bg-white border border-sand rounded-bento p-6"><div class="w-10 h-10 rounded-xl bg-charcoal text-white grid place-items-center"><i class="fa-solid fa-award"></i></div><h3 class="font-bold mt-3">Garansi 24 Jam</h3><p class="text-sm text-ink/60">Tidak puas? Datang lagi gratis, tanpa debat.</p><img src="/images-v2/ba-kamar-after.jpg" class="rounded-xl mt-3 h-28 w-full object-cover" alt="" /></div>
@@ -48,10 +48,10 @@ import Breadcrumb from '../components/Breadcrumb.astro';
     </div>
 
     <!-- SOP Visual -->
-    <div class="bg-white border-y border-sand mt-14 py-12">
+    <div class="bg-white border-y border-sand mt-10 md:mt-14 py-8 md:py-12">
       <div class="max-w-[1120px] mx-auto px-4">
-        <h2 class="font-display font-bold text-2xl text-center reveal">SOP — Cara Kami Masuk Rumahmu</h2>
-        <div class="grid md:grid-cols-4 gap-4 mt-6">
+        <h2 class="font-display font-bold text-xl md:text-2xl text-center reveal">SOP — Cara Kami Masuk Rumahmu</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-5 md:mt-6">
           <div class="reveal text-center"><img src="/images-v2/bento-debu.jpg" class="rounded-bento h-32 w-full object-cover border border-sand" alt="" /><div class="font-bold mt-2">1. Foto Sebelum</div><p class="text-xs text-ink/60">Dokumentasi tiap ruangan</p></div>
           <div class="reveal text-center"><img src="/images-v2/paket-deep.jpg" class="rounded-bento h-32 w-full object-cover border border-sand" alt="" /><div class="font-bold mt-2">2. Kerjakan Detail</div><p class="text-xs text-ink/60">Sampai sudut & kolong</p></div>
           <div class="reveal text-center"><img src="/images-v2/ba-sofa-after.jpg" class="rounded-bento h-32 w-full object-cover border border-sand" alt="" /><div class="font-bold mt-2">3. Foto Sesudah</div><p class="text-xs text-ink/60">Kamu cek dulu</p></div>

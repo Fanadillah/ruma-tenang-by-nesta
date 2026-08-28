@@ -5,17 +5,17 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 ---
 <Base title="Kontak RUMA TENANG by NESTA — WA, Alamat, Jam & Peta" description="Hubungi RUMA TENANG: WA 0812-XXXX balas <1 jam, alamat Jakarta Selatan, jam 08-17 WIB, email halo@rumatenang.id">
   <Navbar />
-  <div class="pt-28">
+  <div class="pt-24 md:pt-28">
     <div class="max-w-[1120px] mx-auto px-4">
       <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Kontak'}]} />
       <div class="mt-4 reveal">
         <span class="inline-flex items-center gap-2 bg-terracotta/10 border border-terracotta/20 text-terracotta px-3 py-1 rounded-full text-xs font-bold">Balas &lt;1 jam • Garansi • Jabodetabek</span>
-        <h1 class="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-none mt-3">Ngobrol dulu, <em class="text-terracotta">gratis.</em></h1>
+        <h1 class="font-display font-extrabold text-[clamp(1.7rem,7vw,3rem)] leading-none mt-3">Ngobrol dulu, <em class="text-terracotta">gratis.</em></h1>
         <p class="text-ink/60 mt-2 max-w-[640px]">Kirim alamat + foto ruangan, kami balas estimasi jujur. Tidak ada biaya survei untuk area &gt;80m².</p>
       </div>
 
       <!-- 4 cards -->
-      <div class="grid md:grid-cols-4 gap-4 mt-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-6 md:mt-8">
         <div class="reveal bg-white border border-sand rounded-bento p-5">
           <div class="w-10 h-10 rounded-xl bg-[#25D366] text-white grid place-items-center"><i class="fa-brands fa-whatsapp"></i></div>
           <div class="font-bold mt-3">WhatsApp</div><div class="text-sm text-ink/60">0812-XXXX-XXXX</div><div class="text-xs text-sage mt-1">Balas &lt;1 jam (08-17 WIB)</div>
@@ -37,8 +37,8 @@ import Breadcrumb from '../components/Breadcrumb.astro';
       </div>
 
       <!-- Map + Form -->
-      <div class="grid lg:grid-cols-2 gap-6 mt-8">
-        <div id="peta" class="reveal rounded-bento overflow-hidden border border-sand h-[420px]">
+      <div class="grid lg:grid-cols-2 gap-5 md:gap-6 mt-6 md:mt-8">
+        <div id="peta" class="reveal rounded-bento overflow-hidden border border-sand h-[280px] md:h-[420px]">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.466474515!2d106.810611!3d-6.261493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTUnNDEuNCJTIDEwNsKwNDgnMzguMiJF!5e0!3m2!1sen!2sid!4v1700000000000" width="100%" height="100%" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta RUMA TENANG"></iframe>
         </div>
         <div class="reveal bg-white border border-sand rounded-bento p-6">

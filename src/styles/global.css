@@ -10,8 +10,14 @@
   --sage: #8A9A8E;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body { font-family: 'DM Sans', sans-serif; background: var(--warm); color: var(--charcoal); overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+/* prevent horizontal scroll on mobile */
+* { word-wrap: break-word; }
+@media (max-width: 640px){
+  .rounded-bento { border-radius: 20px; }
+}
 .font-display { font-family: 'Fraunces', serif; }
 
 /* reveal */

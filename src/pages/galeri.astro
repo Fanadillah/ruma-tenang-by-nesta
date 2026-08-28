@@ -5,11 +5,11 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 ---
 <Base title="Galeri Before-After — Museum Bukti RUMA TENANG by NESTA" description="Galeri hasil nyata: dapur, kamar mandi, sofa. Geser slider, klik lightbox, filter kategori.">
   <Navbar />
-  <div class="pt-28">
+  <div class="pt-24 md:pt-28">
     <div class="max-w-[1120px] mx-auto px-4">
       <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Galeri'}]} />
       <div class="text-center reveal mt-4">
-        <h1 class="font-display font-extrabold text-4xl">Museum Bukti — <em class="text-terracotta">Bukan Filter</em></h1>
+        <h1 class="font-display font-extrabold text-3xl md:text-4xl">Museum Bukti — <em class="text-terracotta">Bukan Filter</em></h1>
         <p class="text-ink/60 mt-2">Geser slider, klik untuk lightbox. Caption: lokasi, luas, paket, durasi.</p>
         <div class="flex justify-center gap-2 mt-4 flex-wrap" id="galeri-filter">
           <button data-filter="all" class="filter-btn bg-charcoal text-white px-4 py-1.5 rounded-full text-sm font-bold">All</button>
@@ -20,7 +20,7 @@ import Breadcrumb from '../components/Breadcrumb.astro';
       </div>
 
       <!-- Slider masonry -->
-      <div class="grid md:grid-cols-3 gap-6 mt-8" id="galeri-grid">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mt-6 md:mt-8" id="galeri-grid">
         <div data-cat="dapur" class="reveal galeri-item">
           <div data-ba class="relative rounded-bento overflow-hidden border border-sand h-56 cursor-ew-resize select-none touch-none">
             <img src="/images-v2/ba-dapur-before.jpg" class="absolute inset-0 w-full h-full object-cover" alt="before dapur" />

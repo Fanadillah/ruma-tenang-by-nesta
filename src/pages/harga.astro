@@ -6,17 +6,17 @@ import { layanan } from '../data/layanan.js';
 ---
 <Base title="Harga Cleaning Service Jabodetabek — Transparan & Garansi | RUMA TENANG" description="Harga RUMA TENANG: Rapi Cepat Rp350k, Deep Tenang Rp650k, Tenang Rutin Rp1.1jt/bulan. Kalkulator live & garansi 24 jam.">
   <Navbar />
-  <div class="pt-28">
+  <div class="pt-24 md:pt-28">
     <div class="max-w-[1120px] mx-auto px-4">
       <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Harga'}]} />
       <div class="text-center reveal mt-4">
         <span class="inline-flex items-center gap-2 bg-terracotta/10 border border-terracotta/20 text-terracotta px-3 py-1 rounded-full text-xs font-bold tracking-wide">Harga Jujur Sejak 2018</span>
-        <h1 class="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-none mt-3">Harga Transparan, <em class="text-terracotta">Tanpa Surprise.</em></h1>
+        <h1 class="font-display font-extrabold text-[clamp(1.7rem,7vw,3rem)] leading-none mt-3">Harga Transparan, <em class="text-terracotta">Tanpa Surprise.</em></h1>
         <p class="text-ink/60 mt-2 max-w-[640px] mx-auto">Pilih yang pas, hitung live, final WA. Tidak ada biaya tersembunyi.</p>
       </div>
 
       <!-- Pricing cards -->
-      <div class="grid md:grid-cols-3 gap-6 mt-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mt-6 md:mt-8">
         <div class="reveal bg-white border border-sand rounded-bento p-6 flex flex-col">
           <img src="/images-v2/paket-rapi.jpg" class="rounded-xl h-36 w-full object-cover" alt="" />
           <h3 class="font-display font-bold text-xl mt-4">Rapi Cepat</h3><div class="font-display font-extrabold text-3xl text-terracotta">Rp350.000 <span class="text-sm font-sans text-ink/50">/visit</span></div>
@@ -56,7 +56,7 @@ import { layanan } from '../data/layanan.js';
       </div>
 
       <!-- Kalkulator -->
-      <div class="grid md:grid-cols-2 gap-6 mt-10 items-center">
+      <div class="grid md:grid-cols-2 gap-5 md:gap-6 mt-8 md:mt-10 items-center">
         <div class="reveal bg-warm border border-sand rounded-bento p-6">
           <h2 class="font-display font-bold text-xl">Kalkulator — Geser Langsung Jadi</h2>
           <label class="text-sm font-semibold mt-4 block">Luas: <span id="kalkulator-luas-label2" class="text-terracotta">85 m²</span></label>
@@ -66,7 +66,7 @@ import { layanan } from '../data/layanan.js';
           <select id="kalkulator-paket2" class="w-full mt-1 rounded-full border border-sand px-4 py-2 bg-white"><option value="rapi">Rapi Cepat</option><option value="deep" selected>Deep Tenang</option><option value="rutin">Tenang Rutin</option></select>
           <div class="flex items-center justify-between mt-4"><div><div class="text-xs text-ink/60">Estimasi</div><div id="kalkulator-out2" class="font-display font-extrabold text-3xl text-terracotta">Rp650.000</div></div><a id="kalkulator-wa2" data-wa="Halo RUMA TENANG" class="bg-terracotta text-white px-6 py-3 rounded-full font-bold">WA</a></div>
         </div>
-        <div class="reveal"><img src="/images-v2/kalkulator-house.jpg" class="rounded-bento w-full h-[360px] object-cover border border-sand" alt="" /></div>
+        <div class="reveal"><img src="/images-v2/kalkulator-house.jpg" class="rounded-bento w-full h-[240px] md:h-[360px] object-cover border border-sand" alt="" /></div>
       </div>
 
       <!-- Guarantee -->

@@ -6,16 +6,16 @@ import { layanan } from '../../data/layanan.js';
 ---
 <Base title="Layanan Cleaning Service — 6 Cara RUMA TENANG Kembalikan Tenangmu" description="6 layanan RUMA TENANG: home, deep, office, sofa, window, general cleaning. Foto, harga, testimoni, before-after.">
   <Navbar />
-  <div class="pt-28">
+  <div class="pt-24 md:pt-28">
     <div class="max-w-[1120px] mx-auto px-4">
       <Breadcrumb items={[{label:'Beranda', href:'/'}, {label:'Layanan'}]} />
       <div class="text-center reveal mt-4">
         <span class="inline-flex bg-sage/15 border border-sage/20 text-sage px-3 py-1 rounded-full text-xs font-bold">6 Layanan • Pilih yang Pas</span>
-        <h1 class="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-none mt-3">6 Cara Kami <em class="text-terracotta">Kembalikan Tenangmu.</em></h1>
+        <h1 class="font-display font-extrabold text-[clamp(1.7rem,7vw,3rem)] leading-none mt-3">6 Cara Kami <em class="text-terracotta">Kembalikan Tenangmu.</em></h1>
         <p class="text-ink/60 mt-2 max-w-[640px] mx-auto">Tiap layanan punya halaman detail + before-after + harga jujur. Klik untuk lihat.</p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 mt-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mt-6 md:mt-8">
         {layanan.map(l => (
           <div class="reveal bg-white border border-sand rounded-bento overflow-hidden flex flex-col hover:shadow-xl transition">
             <img src={l.hero} class="w-full h-44 object-cover" alt={l.title} loading="lazy" />
