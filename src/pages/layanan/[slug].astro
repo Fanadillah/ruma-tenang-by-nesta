@@ -21,13 +21,17 @@ const isSofa = item.slug==='carpet-sofa';
           <span class="inline-flex bg-sage/15 border border-sage/20 text-sage px-3 py-1 rounded-full text-xs font-bold">{item.keyword}</span>
           <h1 class="font-display font-extrabold text-[clamp(1.7rem,7vw,3rem)] leading-none mt-3">{item.title.split('—')[0]} <em class="text-terracotta">— {item.title.split('—')[1] || ''}</em></h1>
           <p class="text-ink/60 mt-3">{item.desc}</p>
-          <div class="flex items-center gap-3 mt-4">
-            <div class="font-display font-extrabold text-3xl text-terracotta">{item.harga}</div>
-            <span class="bg-warm border border-sand px-3 py-1 rounded-full text-xs">Garansi 24 jam</span>
+          <div class="flex flex-wrap items-center gap-2 md:gap-3 mt-4">
+            <div class="font-display font-extrabold text-2xl md:text-3xl text-terracotta">{item.harga}</div>
+            <span class="bg-warm border border-sand px-3 py-1.5 rounded-full text-xs font-semibold">Garansi 24 jam</span>
           </div>
-          <div class="flex flex-col sm:flex-row gap-2 mt-4">
-            <a data-wa={`Halo RUMA TENANG, saya mau ${item.slug} untuk rumah di [lokasi]. Boleh estimasi?`} class="bg-terracotta text-white px-6 py-3.5 rounded-full font-bold text-center min-h-[48px] flex items-center justify-center">Pesan {item.slug} via WA</a>
-            <a href="/galeri" class="px-6 py-3.5 rounded-full border border-sand bg-white font-bold text-center min-h-[48px] flex items-center justify-center">Lihat Galeri</a>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-5">
+            <a data-wa={`Halo RUMA TENANG, saya mau ${item.slug} untuk rumah di [lokasi]. Boleh estimasi?`} class="bg-terracotta hover:bg-terracotta-dark text-white px-5 py-3.5 rounded-full font-bold text-center min-h-[52px] flex items-center justify-center gap-2 text-sm md:text-base leading-tight"><i class="fa-brands fa-whatsapp"></i> Pesan via WA</a>
+            <a href="/galeri" class="px-5 py-3.5 rounded-full border-2 border-sand bg-white font-bold text-center min-h-[52px] flex items-center justify-center gap-2 text-sm md:text-base"> <i class="fa-solid fa-images"></i> Lihat Galeri</a>
+          </div>
+          <div class="flex gap-2 mt-3 text-xs">
+            <span class="bg-white border border-sand px-3 py-1.5 rounded-full">Respon &lt;1 jam</span>
+            <span class="bg-white border border-sand px-3 py-1.5 rounded-full">Tanpa DP</span>
           </div>
         </div>
         <div class="reveal">
@@ -106,10 +110,13 @@ const isSofa = item.slug==='carpet-sofa';
     </div>
   </div>
   <!-- Sticky CTA mobile -->
-  <div class="fixed bottom-3 left-1/2 -translate-x-1/2 z-40 md:hidden bg-charcoal text-white rounded-full px-2 py-2 flex gap-2 shadow-xl border border-white/10">
-    <a data-wa={`Halo RUMA TENANG, saya mau ${item.slug}.`} class="bg-terracotta px-5 py-2 rounded-full font-bold text-sm">WA {item.slug}</a>
-    <a href="/harga" class="px-4 py-2 rounded-full bg-white text-charcoal text-sm font-bold">Harga</a>
+  <div class="fixed bottom-3 left-3 right-3 md:hidden z-40">
+    <div class="bg-charcoal/95 backdrop-blur-xl text-white rounded-full px-2 py-2 flex gap-2 shadow-2xl border border-white/10 max-w-[420px] mx-auto">
+      <a data-wa={`Halo RUMA TENANG, saya mau ${item.slug}.`} class="flex-1 bg-terracotta hover:bg-terracotta-dark text-white px-4 py-3 rounded-full font-bold text-sm flex items-center justify-center gap-1.5 min-h-[44px]"><i class="fa-brands fa-whatsapp text-xs"></i> WA Sekarang</a>
+      <a href="/harga" class="px-5 py-3 rounded-full bg-white text-charcoal text-sm font-bold flex items-center justify-center min-h-[44px]">Harga</a>
+    </div>
   </div>
+  <div class="h-16 md:hidden"></div>
   <footer class="bg-charcoal text-white/60 text-center text-xs py-6 mt-12">© 2026 RUMA TENANG by NESTA</footer>
   <script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Service","name":item.title,"description":item.desc,"provider":{"@type":"LocalBusiness","name":"RUMA TENANG by NESTA"},"areaServed":["Jakarta","Bekasi","Depok","Tangerang","Bogor"],"offers":{"@type":"Offer","price":item.harga}})} />
 </Base>
