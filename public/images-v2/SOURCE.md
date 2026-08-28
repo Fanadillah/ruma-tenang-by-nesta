@@ -8,12 +8,12 @@ Semua foto dari **Unsplash** (License: Free to use under Unsplash License — ti
 | `bento-debu.jpg` | `photo-1527515637462-cff94eecc1ac` | https://unsplash.com/photos/1527515637462-cff94eecc1ac |
 | `bento-sofa.jpg` | `photo-1586023492125-27b2c045efd7` | https://unsplash.com/photos/1586023492125-27b2c045efd7 |
 | `bento-waktu.jpg` | `photo-1484154218962-a197022b5858` | https://unsplash.com/photos/1484154218962-a197022b5858 |
-| `ba-dapur-before.jpg` | `photo-1556911220-bff31c812dba` | https://unsplash.com/photos/1556911220-bff31c812dba |
-| `ba-dapur-after.jpg` | `photo-1556911220-e15b29be8c8f` | https://unsplash.com/photos/1556911220-e15b29be8c8f |
+| `ba-dapur-before.jpg` | `photo-1583847268964-b28dc8f51f92` — dapur berantakan (tanpa orang) | https://unsplash.com/photos/1583847268964-b28dc8f51f92 |
+| `ba-dapur-after.jpg` | `photo-1505693416388-ac5ce068fe85` — dapur bersih kinclong (tanpa orang, reuse paket-rutin) | https://unsplash.com/photos/1505693416388-ac5ce068fe85 |
 | `ba-kamar-before.jpg` | `photo-1584622650111-993a426fbf0a` | https://unsplash.com/photos/1584622650111-993a426fbf0a |
 | `ba-kamar-after.jpg` | `photo-1620626011761-996317b8d101` | https://unsplash.com/photos/1620626011761-996317b8d101 |
 | `ba-sofa-before.jpg` | `photo-1555041469-a586c61ea9bc` | https://unsplash.com/photos/1555041469-a586c61ea9bc |
-| `ba-sofa-after.jpg` | `photo-1493666438817-866a91353ca9` | https://unsplash.com/photos/1493666438817-866a91353ca9 |
+| `ba-sofa-after.jpg` | `photo-1586023492125-27b2c045efd7` — sofa ruang tamu bersih (tanpa orang, reuse bento-sofa) | https://unsplash.com/photos/1586023492125-27b2c045efd7 |
 | `paket-rapi.jpg` | `photo-1522708323590-d24dbb6b0267` | https://unsplash.com/photos/1522708323590-d24dbb6b0267 |
 | `paket-deep.jpg` | `photo-1507089947368-19c1da9775ae` | https://unsplash.com/photos/1507089947368-19c1da9775ae |
 | `paket-rutin.jpg` | `photo-1505693416388-ac5ce068fe85` | https://unsplash.com/photos/1505693416388-ac5ce068fe85 |
